@@ -1,6 +1,7 @@
 import { SideBarMenuItem } from "../types/types";
 import {classNames} from "../util/classes";
 import "./SideBarMenuItemView.scss";
+import { NavLink } from 'react-router-dom';
 
 interface SideBarMenuItemViewProps{
     item: SideBarMenuItem;
@@ -12,7 +13,7 @@ export default function SideBarMenuItemView({
     isOpen,
 }: SideBarMenuItemViewProps){
     return (
-    <div className='SideBarMenuItemView'>
+    <NavLink className='SideBarMenuItemView' to={item.url}>
         <a href={item.url}>
             <div className={classNames('ItemContent', isOpen ? '' : 'collapsed')}>
                 <div className="icon">
@@ -23,6 +24,6 @@ export default function SideBarMenuItemView({
             </div>      
         </a>    
         {!isOpen ? <div className="tooltip">{item.label}</div> : ""}
-    </div>
+    </NavLink>
     );  
 } 

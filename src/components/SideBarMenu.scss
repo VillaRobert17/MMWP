@@ -9,6 +9,7 @@
     height: 75%;
     display: flex;
     flex-direction: column;
+    padding-top: 2em;
     
     @include transition(width);
 
