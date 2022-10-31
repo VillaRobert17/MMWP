@@ -12,7 +12,7 @@
         color: #fbcbcb;
         text-decoration: none;
         display: block;
-        padding: 10px;
+        padding: 5px;
         width: 10px;
         border-radius: 5px;
 
@@ -53,15 +53,16 @@
                 display: inline-block;
                 animation-duration: 0.4s;
                 animation-name: tooltip;
+                color: rgba(242, 84, 221, 0.904);
             }
          }
     }
     
     .tooltip{
         position: absolute;
-        background-color: grey;
+        background-color: white;
         left: 70px;
-        padding: 10px;
+        padding: 5px;
         border-radius: 4px;
         text-transform: capitalize;
         display: none;

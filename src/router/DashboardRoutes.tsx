@@ -12,7 +12,7 @@ export const DashboardRoutes = () => {
         </div>
         <div className="container-Routes">
           <Routes>
-          <Route path="/" element={<Principal/>} />
+          <Route path="" element={<Principal/>} />
             <Route path="/AgregarEvento" element={<AgregarEvento />} />
           </Routes>
         </div>

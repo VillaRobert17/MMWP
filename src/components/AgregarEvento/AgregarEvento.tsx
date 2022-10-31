@@ -5,9 +5,15 @@ import profileImage from "../../assets/Logo.png";
 export const AgregarEvento = () => {
   return (
     <div className="bodyAgregarEvento">
+      <section className="content header">
+      <style>
+      @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&display=swap');
+      </style>
+        <h2 > Agregar Evento</h2>
+        
+       </section>
       <div className="content">
-        <h1 className="logo">Registrar Evento</h1>
-
+        
         <div className="contact-wrapper animated bounceInUp">
           <div className="contact-form">
             <form action="">
@@ -180,7 +186,7 @@ export const AgregarEvento = () => {
             <div className="contact-info-logo">
               <img src={profileImage} width="160" height="160" />
             </div>
-            <h4>Más información</h4>
+            <h4>Para más información o dudas,contactanos en: </h4>
             <ul>
               <li>
                 <i className="fas fa-map-marker-alt"></i> Tepic, Nayarit, México
@@ -193,10 +199,10 @@ export const AgregarEvento = () => {
               </li>
             </ul>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
-              provident ipsam necessitatibus repellendus?
+            Diseño, planeación, coordinación y logística para tu evento. 
+            Cuidamos cada detalle para que vivas al máximo la experiencia de tu gran día, con nuestra experiencia, y creatividad a tu servicio.
             </p>
-            <p>Marina Meza</p>
+            <p>-Marina Meza Wedding & Event Planner</p>
           </div>
         </div>
       </div>
