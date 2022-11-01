@@ -1,10 +1,46 @@
-import React from "react";
+import React, {useState} from "react";
 import "../../styles/AgregarEvento.scss";
 import profileImage from "../../assets/Logo.png";
 
-export const AgregarEvento = () => {
+export const AgregarEvento = (props: any) => {
+  
+  const initialStateValues = {
+    tipoevento: "",
+    estilo: "",
+    adultos: "",
+    ninos: "",
+    ciudad: "",
+    numinvit: "",
+    correo: "",
+    precoti: "",
+    especificaciones: "",
+    pista: "",
+    banquete: "",
+    cristaleria: "",
+    musica: "",
+    lugarEvento: "",
+    mesaPostres: "",
+    barraCocteleria: "",
+    decoracion: "",
+    fotoVideo: "",
+    barraMadera: "",
+  };
+  
+  const [values, setValues] = useState(initialStateValues);
+
+  const handleInputChange = (e: any) => {
+    const {name, value} = e.target;
+    setValues({...values,[name]:value})
+    
+  };
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    props.addOrEditLink(values);
+  };
+  
   return (
-    <div className="bodyAgregarEvento">
+    <div className="bodyAgregarEvento" onSubmit={handleSubmit}>
       <section className="content header">
       <style>
       @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&display=swap');
@@ -19,47 +55,47 @@ export const AgregarEvento = () => {
             <form action="">
               <p>
                 <label>Tipo de evento</label>
-                <input type="text" name="tipoevento" />
+                <input type="text" name="tipoevento" onChange={handleInputChange}/>
               </p>
               <p>
                 <label>Estilo</label>
-                <input type="text" name="estilo" />
+                <input type="text" name="estilo" onChange={handleInputChange}/>
               </p>
               <p>
                 <label>Adultos</label>
-                <input type="text" name="adultos" />
+                <input type="text" name="adultos" onChange={handleInputChange}/>
               </p>
               <p>
                 <label>Niños</label>
-                <input type="text" name="ninos" />
+                <input type="text" name="ninos" onChange={handleInputChange}/>
               </p>
               <p>
                 <label>Ciudad</label>
-                <input type="text" name="ciudad" />
+                <input type="text" name="ciudad" onChange={handleInputChange}/>
               </p>
               <p>
                 <label>No. invitados</label>
-                <input type="text" name="numinvit" />
+                <input type="text" name="numinvit" onChange={handleInputChange}/>
               </p>
               <p>
                 <label>Correo</label>
-                <input type="text" name="correo" />
+                <input type="text" name="correo" onChange={handleInputChange}/>
               </p>
               <p>
                 <label>Pre-cotización</label>
-                <input type="text" name="precoti" />
+                <input type="text" name="precoti" onChange={handleInputChange}/>
               </p>
               <p>
                 <label>Especificaciones</label>
-                <textarea name="message"></textarea>
+                <textarea name="especificaciones" onChange={handleInputChange}></textarea>
               </p>
             </form>
             <form action="">
               <div className="content-select">
                 <p>
                   <label>Pista</label>
-                  <select>
-                    <option selected disabled>
+                  <select name="pista" onChange={handleInputChange}>
+                    <option selected disabled >
                       Seleccione
                     </option>
                     <option value="disco">Disco</option>
@@ -70,19 +106,19 @@ export const AgregarEvento = () => {
               <div className="content-select">
                 <p>
                   <label>Banquete</label>
-                  <select>
+                  <select name="banquete" onChange={handleInputChange}>
                     <option selected disabled>
                       Seleccione
                     </option>
-                    <option value="disco">Ejemplo</option>
-                    <option value="baile">Ejemplo</option>
+                    <option value="grande">grande</option>
+                    <option value="chico">chico</option>
                   </select>
                 </p>
               </div>
               <div className="content-select">
                 <p>
                   <label>Cristalería</label>
-                  <select>
+                  <select name="cristaleria" onChange={handleInputChange}>
                     <option selected disabled>
                       Seleccione
                     </option>
@@ -94,7 +130,7 @@ export const AgregarEvento = () => {
               <div className="content-select">
                 <p>
                   <label>Música</label>
-                  <select>
+                  <select name="musica" onChange={handleInputChange}>
                     <option selected disabled>
                       Seleccione
                     </option>
@@ -106,7 +142,7 @@ export const AgregarEvento = () => {
               <div className="content-select">
                 <p>
                   <label>Lugar de evento</label>
-                  <select>
+                  <select name="lugarEvento" onChange={handleInputChange}>
                     <option selected disabled>
                       Seleccione
                     </option>
@@ -118,7 +154,7 @@ export const AgregarEvento = () => {
               <div className="content-select">
                 <p>
                   <label>Mesa de postres</label>
-                  <select>
+                  <select name="mesaPostres" onChange={handleInputChange}>
                     <option selected disabled>
                       Seleccione
                     </option>
@@ -130,7 +166,7 @@ export const AgregarEvento = () => {
               <div className="content-select">
                 <p>
                   <label>Barra de coctelería</label>
-                  <select>
+                  <select name="barraCocteleria" onChange={handleInputChange}>
                     <option selected disabled>
                       Seleccione
                     </option>
@@ -142,7 +178,7 @@ export const AgregarEvento = () => {
               <div className="content-select">
                 <p>
                   <label>Decoración</label>
-                  <select>
+                  <select name="decoracion" onChange={handleInputChange}>
                     <option selected disabled>
                       Seleccione
                     </option>
@@ -154,7 +190,7 @@ export const AgregarEvento = () => {
               <div className="content-select">
                 <p>
                   <label>Fotografía y video</label>
-                  <select>
+                  <select name="fotoVideo" onChange={handleInputChange}>
                     <option selected disabled>
                       Seleccione
                     </option>
@@ -166,7 +202,7 @@ export const AgregarEvento = () => {
               <div className="content-select">
                 <p>
                   <label>Barra de madera</label>
-                  <select>
+                  <select name="barraMadera" onChange={handleInputChange}>
                     <option selected disabled>
                       Seleccione
                     </option>
