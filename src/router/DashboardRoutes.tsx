@@ -3,7 +3,7 @@ import { SideBarMenu } from "../components/SideBarMenu";
 import { AgregarEvento } from "../components/AgregarEvento/AgregarEvento";
 import { Principal } from '../components/Principal/Principal';
 import {db} from '../firebase'
-import {collection, addDoc, Timestamp} from 'firebase/firestore'
+import {collection, addDoc, Timestamp} from 'firebase/firestore';
 
 
 export const DashboardRoutes = () => {
