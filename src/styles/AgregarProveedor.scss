@@ -1,0 +1,145 @@
+.proveedor{
+    background: #000000;
+    color: rgb(255, 255, 255);
+    line-height: 1.6;
+    font-family: 'Quicksand', sans-serif;
+    padding: 1 1.5em;
+    textarea{
+        resize: none;
+        height: 4em;
+        width: 25em;
+    }
+
+    .content {
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0.1em;
+    }
+    
+    .logo{
+        text-align: center;
+        font-size: 1.5em;
+    }
+    
+    .contact-wrapper {
+        box-shadow: 0 0 10px 0 rgba(255, 255, 255, .3);
+    }
+    
+    .contact-wrapper > * {
+        padding: 1em;
+    }contact-form
+    
+    .contact-form {
+        background: #222222;
+    }
+    
+    .contact-form form {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .contact-form form label {
+        display:block;
+    }
+    
+    .contact-form form p {
+        margin: 0;
+        padding: 1em;
+        font-size: 0.8em;
+    }
+    .contact-select {
+        height: 100vh;
+        display: grid;
+        grid-gap: 10px 40px;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+      }
+    .content-select select{
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+    .content-select{
+        max-width: 200px;
+        position: relative;
+    }
+     
+    .content-select select{
+        font-weight: bolder;
+        font-size: 0.8em;
+        background-color: #e9c5c5;
+        display: inline-block;
+        width: 120%;
+        cursor: pointer;
+          padding: 2px 30px;
+          height: 30px;
+          outline: 0; 
+          border: 0;
+        border-radius: 0;
+        font-family: 'Quicksand', sans-serif;
+        border:2px solid rgba(0,0,0,0.2);
+        border-radius: 12px;
+        position: relative;
+        transition: all 0.25s ease;
+    }
+    .content-select select:hover{
+        background: #f7c6f3;
+    }
+    .contact-form form input{
+        width: 100%;
+        padding: 0.1em;
+        border: none;
+        background: none;
+        outline: 0;
+        color: #fff;
+        border-bottom: 1px solid #fbcbcb;
+    }
+    .contact-form form label{
+        text-align: center;
+    }
+    
+    /* DESCRIPCION*/
+    .contact-info {
+        background: #000;
+    }
+    
+    .contact-info h4{
+        text-align: center;
+        margin: 0.5rem 0 0 4rem;
+        font-size: 15px;
+    }
+      .contact-info button{
+        background: #fbcbcb;
+        font-size: 0.6em;
+        color: rgb(0, 0, 0);
+        font-weight: bolder;
+        border: 1;
+        text-transform: uppercase;
+        padding: 1em;
+        outline: 0;
+        text-align: center;
+        margin: 0.5rem 0 0 2rem;
+    }
+    .contact-info button:hover{
+        background: #f7c6f3;
+    }
+    
+    /* LARGE SIZE */
+    @media(min-width: 400px) {
+        body {
+            padding: 0 4em;
+        }
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 15fr 0fr;
+        }
+        .contact-wrapper > * {
+            padding: 1em;
+        }
+        .contact-info h4 {
+            text-align: left;
+        }
+    }
+}
+

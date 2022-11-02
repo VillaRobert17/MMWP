@@ -4,6 +4,7 @@ import { AgregarEvento } from "../components/AgregarEvento/AgregarEvento";
 import { Principal } from '../components/Principal/Principal';
 import {db} from '../firebase'
 import {collection, addDoc, Timestamp} from 'firebase/firestore';
+import { AgregarProveedor } from "../components/AgregarProveedor/AgregarProveedor";
 
 
 export const DashboardRoutes = () => {
@@ -48,6 +49,7 @@ export const DashboardRoutes = () => {
           <Routes>
           <Route path="" element={<Principal/>} />
             <Route path="/AgregarEvento" element={<AgregarEvento addOrEditLink={addOrEditLink}/>} />
+            <Route path="/AgregarProveedor" element={<AgregarProveedor/>} />
           </Routes>
         </div>
       </BrowserRouter>
