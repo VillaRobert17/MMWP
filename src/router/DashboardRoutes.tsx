@@ -32,12 +32,13 @@ export const DashboardRoutes = () => {
         barraMadera: linkObject.barraMadera,
       })
     console.log("agregada")
+    
     }catch(err){
       alert(err)
     }
     
   }
-
+  
   return (
     <>
       <BrowserRouter>
