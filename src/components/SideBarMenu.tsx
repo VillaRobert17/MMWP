@@ -75,7 +75,7 @@ export function SideBarMenu() {
       id: "9",
       label: "Proveedores",
       icon: BiTask,
-      url: "/",
+      url: "/AgregarProveedor",
     },
   ];
 
