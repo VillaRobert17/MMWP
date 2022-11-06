@@ -37,8 +37,8 @@ export const DashboardRoutes = () => {
     }catch(err){
       alert(err)
     }
-    
   }
+
   
   return (
     <>

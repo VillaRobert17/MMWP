@@ -1,38 +1,75 @@
 import React from 'react'
+import {useState} from "react";
+import {db} from '../../firebase'
 import "../../styles/AgregarProveedor.scss"
+import {collection, addDoc, Timestamp} from 'firebase/firestore'
 
 
 export const AgregarProveedor = () => {
+
+    
+    const [namepro, setNamepro] = useState('')
+    const [telpro, setTelpro] = useState('')
+    const [calleprov, setCalleprov] = useState('')
+    const [coloniaprov, setColoniaprov] = useState('')
+    const [estado, setEstado] = useState('')
+    const [descripcion, setDescripcion] = useState('')
+
+    const handleSubmit = async (e:any) => {
+        e.preventDefault()
+        try{
+            await addDoc(collection(db, 'prove'),{
+                namepro: namepro,
+                telpro: telpro,
+                calleprov: calleprov,
+                coloniaprov: coloniaprov,
+                estado: estado,
+                descripcion: descripcion,
+            })
+            console.log("AGREGADA")
+        }catch (err) {
+            alert(err)
+        }
+    }
+    
+    function limpiar() {
+        document.getElementsByTagName("input")[0].value = "";
+        document.getElementsByTagName("input")[1].value = "";
+        document.getElementsByTagName("input")[2].value = "";
+        document.getElementsByTagName("input")[3].value = "";
+        document.getElementsByTagName("textarea")[0].value = "";
+    }
+    
     return (
-        <div className="proveedor">
+        <div className="proveedor" onSubmit={handleSubmit}>
             <div className="content">
 
                 <h1 className="logo">Proveedores</h1>
 
                 <div className="contact-wrapper animated bounceInUp">
                     <div className="contact-form">
-                        <form action="">
+                        <form action="" id='form1'>
                             <p>
                                 <label>Nombre</label>
-                                <input type="text" name="namepro"/>
+                                <input type="text" name="namepro" id='namepro' onChange={(e) => setNamepro(e.target.value)}/>
                             </p>
                             <p>
                                 <label>Télefono</label>
-                                <input type="text" name="telpro"/>
+                                <input type="text" name="telpro"  onChange={(e) => setTelpro(e.target.value)}/>
                             </p>
                             <p>
                                 <label>Calle</label>
-                                <input type="text" name="calleprov"/>
+                                <input type="text" name="calleprov"  onChange={(e) => setCalleprov(e.target.value)}/>
                             </p>
                             <p>
                                 <label>Colonia</label>
-                                <input type="text" name="coloniaprov"/>
+                                <input type="text" name="coloniaprov"  onChange={(e) => setColoniaprov(e.target.value)}/>
                             </p>
                             <form action="">
                                 <div className="content-select">
                                     <p>
                                         <label>Estado</label>
-                                        <select>
+                                        <select name="estado" onChange={(e) => setEstado(e.target.value)}>
                                             <option value="aguascalientes">Aguascalientes</option>
                                             <option value="disco">Baja California</option>
                                             <option value="bcj">Baja California Sur</option>
@@ -71,13 +108,12 @@ export const AgregarProveedor = () => {
                         </form>
 
                     </div>
-                    <div className="contact-info">
+                    <div className="contact-info col">
                         <h4>Descripción</h4>
-                        <textarea name="descripcion"></textarea>
-                        <p>
-                            <button>Agregar proveedor</button>
-                        </p>
-                    </div>
+                        <textarea name="descripcion" onChange={(e) => setDescripcion(e.target.value)}></textarea>
+                            <button type='submit' onClick={handleSubmit}>Agregar proveedor</button>
+                            <button type='submit' onClick={limpiar}>Limpiar</button>
+                    </div>                                        
                 </div>
 
             </div>
