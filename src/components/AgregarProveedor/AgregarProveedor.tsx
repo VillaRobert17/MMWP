@@ -3,6 +3,7 @@ import {useState} from "react";
 import {db} from '../../firebase'
 import "../../styles/AgregarProveedor.scss"
 import {collection, addDoc,getDocs, Timestamp} from 'firebase/firestore'
+import Swal from 'sweetalert2'
 
 
 
@@ -27,11 +28,21 @@ export const AgregarProveedor = () => {
                 estado: estado,
                 descripcion: descripcion,
             })
-            console.log("AGREGADA")
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Datos agregados correctamente',
+                showConfirmButton: false,
+                timer: 2000
+              })
             limpiar();
             
         }catch (err) {
-            alert(err)
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Algo salio mal!: '+err,
+              })
         }
     }
     

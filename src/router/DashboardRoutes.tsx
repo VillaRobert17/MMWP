@@ -12,37 +12,6 @@ import { AgregarProveedor } from "../components/AgregarProveedor/AgregarProveedo
 
 export const DashboardRoutes = () => {
   
-  const addOrEditLink = async (linkObject:any) => {
-    try{
-      await addDoc(collection(db, 'links'), {
-        tipoevento: linkObject.tipoevento,
-        estilo: linkObject.estilo,
-        adultos: linkObject.adultos,
-        ninos: linkObject.ninos,
-        ciudad: linkObject.ciudad,
-        numinvit: linkObject.numinvit,
-        correo: linkObject.correo,
-        precoti: linkObject.precoti,
-        especificaciones: linkObject.especificaciones,
-        pista: linkObject.pista,
-        banquete: linkObject.banquete,
-        cristaleria: linkObject.cristaleria,
-        musica: linkObject.musica,
-        lugarEvento: linkObject.lugarEvento,
-        mesaPostres: linkObject.mesaPostres,
-        barraCocteleria: linkObject.barraCocteleria,
-        decoracion: linkObject.decoracion,
-        fotoVideo: linkObject.fotoVideo,
-        barraMadera: linkObject.barraMadera,
-      })
-    console.log("agregada")
-    
-    }catch(err){
-      alert(err)
-    }
-  }
-
-  
   return (
     <>
       <BrowserRouter>
@@ -52,7 +21,7 @@ export const DashboardRoutes = () => {
         <div className="container-Routes">
           <Routes>
           <Route path="" element={<Principal/>} />
-            <Route path="/AgregarEvento" element={<AgregarEvento addOrEditLink={addOrEditLink}/>} />
+            <Route path="/AgregarEvento" element={<AgregarEvento/>} />
             <Route path="/AgregarProveedor" element={<AgregarProveedor/>} />
             <Route path="/Cotizaciones" element={<Cotizaciones/>} />
             <Route path="/Eventos" element={<Eventos/>} />

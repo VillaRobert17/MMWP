@@ -1,46 +1,78 @@
 import {useState} from "react";
 import "../../styles/AgregarEvento.scss";
 import profileImage from "../../assets/Logo.png";
+import {db} from '../../firebase'
+import {collection, addDoc,getDocs, Timestamp} from 'firebase/firestore'
+import Swal from 'sweetalert2'
 
-export const AgregarEvento = (props: any) => {
+export const AgregarEvento = () => {
   
-  const initialStateValues = {
-    tipoevento: "",
-    estilo: "",
-    adultos: "",
-    ninos: "",
-    ciudad: "",
-    numinvit: "",
-    correo: "",
-    precoti: "",
-    especificaciones: "",
-    pista: "",
-    banquete: "",
-    cristaleria: "",
-    musica: "",
-    lugarEvento: "",
-    mesaPostres: "",
-    barraCocteleria: "",
-    decoracion: "",
-    fotoVideo: "",
-    barraMadera: "",
-  };
+  const [tipoevento, setTipoevento] = useState('')
+  const [estilo, setEstilo] = useState('')
+  const [adultos, setAdultos] = useState('')
+  const [ninos, setNinos] = useState('')
+  const [ciudad, setCiudad] = useState('')
+  const [numinvit, setNuminvit] = useState('')
+  const [correo, setCorreo] = useState('')
+  const [precoti, setPrecoti] = useState('')
+  const [especificaciones, setEspecificaciones] = useState('')
+  const [pista, setPista] = useState('')
+  const [banquete, setBanquete] = useState('')
+  const [cristaleria, setCristaleria] = useState('')
+  const [musica, setMusica] = useState('')
+  const [lugarEvento, setLugarEvento] = useState('')
+  const [mesaPostres, setMesaPostres] = useState('')
+  const [barraCocteleria, setBarraCocteleria] = useState('')
+  const [decoracion, setDecoracion] = useState('')
+  const [fotoVideo, setFotoVideo] = useState('')
+  const [barraMadera, setBarraMadera] = useState('')
   
-  const [values, setValues] = useState(initialStateValues);
+  const handleSubmit = async (e:any) => {
+    e.preventDefault()
+    try{
+        await addDoc(collection(db, 'links'),{
+          tipoevento: tipoevento,
+          estilo: estilo,
+          adultos: adultos,
+          ninos: ninos,
+          ciudad: ciudad,
+          numinvit: numinvit,
+          correo: correo,
+          precoti: precoti,
+          especificaciones: especificaciones,
+          pista: pista,
+          banquete: banquete,
+          cristaleria: cristaleria,
+          musica: musica,
+          lugarEvento: lugarEvento,
+          mesaPostres: mesaPostres,
+          barraCocteleria: barraCocteleria,
+          decoracion: decoracion,
+          fotoVideo: fotoVideo,
+          barraMadera: barraMadera,
+        })
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Datos agregados correctamente',
+          showConfirmButton: false,
+          timer: 2000
+        })
+        limpiar();
+        
+    }catch (err) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Algo salio mal!: '+err,
+      })
+    }
+}
 
-  const handleInputChange = (e: any) => {
-    const {name, value} = e.target;
-    setValues({...values,[name]:value})
-  };
-
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    props.addOrEditLink(values);
-    
-  };
 
   function limpiar() {
     document.getElementsByTagName("input")[0].value = "";
+    document.getElementsByTagName("input")[1].value = "";
     document.getElementsByTagName("input")[2].value = "";
     document.getElementsByTagName("input")[3].value = "";
     document.getElementsByTagName("input")[4].value = "";
@@ -89,7 +121,7 @@ export const AgregarEvento = (props: any) => {
             <div className="content-select">
                 <p>
                   <label>Tipo de evento</label>
-                  <select name="tipoevento" onChange={handleInputChange} onMouseUp={Event =>{
+                  <select name="tipoevento" onChange={(e) => setTipoevento(e.target.value)} onMouseUp={Event =>{
                   sumar();
                 }}>
                     <option selected disabled >
@@ -106,7 +138,7 @@ export const AgregarEvento = (props: any) => {
               </div>
               <p>
                 <label>Estilo</label>
-                <input type="text" name="estilo" onChange={handleInputChange} onKeyUp={Event =>{
+                <input type="text" name="estilo" onChange={(e) => setEstilo(e.target.value)} onKeyUp={Event =>{
                   sumar();
                 }}/>
               </p>
@@ -116,40 +148,40 @@ export const AgregarEvento = (props: any) => {
                 <input type="number" id="id_adultos" name="adultos" className="monto" onKeyUp={Event =>{
                   sumar();
                 }}
-                 onChange={handleInputChange}/>
+                onChange={(e) => setAdultos(e.target.value)}/>
               </p>
               <p>
                 <label>Niños</label>
                 <input type="number" id="id_ninos" name="ninos" className="monto" onKeyUp={Event =>{
                   sumar();
                 }}
-                onChange={handleInputChange} />
+                onChange={(e) => setNinos(e.target.value)} />
               </p>
               <p>
                 <label>Ciudad</label>
-                <input type="text" name="ciudad" onChange={handleInputChange} onKeyUp={Event =>{
+                <input type="text" name="ciudad" onChange={(e) => setCiudad(e.target.value)} onKeyUp={Event =>{
                   sumar();
                 }}/>
               </p>
               <p>
                 <label>No. invitados</label>               
-                <input type="text" id="numinvit" name="numinvit" onChange={handleInputChange}/>    
+                <input type="text" id="numinvit" name="numinvit" onChange={(e) => setNuminvit(e.target.value)}/>    
               </p>
               <p>
                 <label>Correo</label>
-                <input type="text" name="correo" onChange={handleInputChange} onKeyUp={Event =>{
+                <input type="text" name="correo" onChange={(e) => setCorreo(e.target.value)} onKeyUp={Event =>{
                   sumar();
                 }}/>
               </p>
               <p>
                 <label>Pre-cotización</label>
-                <input type="number" name="precoti" onChange={handleInputChange} onKeyUp={(e) => {
+                <input type="number" name="precoti" onChange={(e) => setPrecoti(e.target.value)} onKeyUp={(e) => {
                     sumar();
                 }}/>
               </p>
               <p>
                 <label>Especificaciones</label>
-                <textarea name="especificaciones" onChange={handleInputChange} onKeyUp={Event =>{
+                <textarea name="especificaciones" onChange={(e) => setEspecificaciones(e.target.value)} onKeyUp={Event =>{
                   sumar();
                 }}></textarea>
               </p>
@@ -158,7 +190,7 @@ export const AgregarEvento = (props: any) => {
               <div className="content-select">
                 <p>
                   <label>Pista</label>
-                  <select name="pista" onChange={handleInputChange} onMouseUp={Event =>{
+                  <select name="pista" onChange={(e) => setPista(e.target.value)} onMouseUp={Event =>{
                   sumar();
                 }}>
                     <option selected disabled >
@@ -172,7 +204,7 @@ export const AgregarEvento = (props: any) => {
               <div className="content-select">
                 <p>
                   <label>Banquete</label>
-                  <select name="banquete" onChange={handleInputChange} onMouseUp={Event =>{
+                  <select name="banquete" onChange={(e) => setBanquete(e.target.value)} onMouseUp={Event =>{
                   sumar();
                 }}>
                     <option selected disabled>
@@ -186,7 +218,7 @@ export const AgregarEvento = (props: any) => {
               <div className="content-select">
                 <p>
                   <label>Cristalería</label>
-                  <select name="cristaleria" onChange={handleInputChange} onMouseUp={Event =>{
+                  <select name="cristaleria" onChange={(e) => setCristaleria(e.target.value)} onMouseUp={Event =>{
                   sumar();
                 }}>
                     <option selected disabled>
@@ -200,7 +232,7 @@ export const AgregarEvento = (props: any) => {
               <div className="content-select">
                 <p>
                   <label>Música</label>
-                  <select name="musica" onChange={handleInputChange} onMouseUp={Event =>{
+                  <select name="musica" onChange={(e) => setMusica(e.target.value)} onMouseUp={Event =>{
                   sumar();
                 }}>
                     <option selected disabled>
@@ -216,7 +248,7 @@ export const AgregarEvento = (props: any) => {
               <div className="content-select">
                 <p>
                   <label>Lugar de evento</label>
-                  <select name="lugarEvento" onChange={handleInputChange} onMouseUp={Event =>{
+                  <select name="lugarEvento" onChange={(e) => setLugarEvento(e.target.value)} onMouseUp={Event =>{
                   sumar();
                 }}>
                     <option selected disabled>
@@ -230,7 +262,7 @@ export const AgregarEvento = (props: any) => {
               <div className="content-select">
                 <p>
                   <label>Mesa de postres</label>
-                  <select name="mesaPostres" onChange={handleInputChange} onMouseUp={Event =>{
+                  <select name="mesaPostres" onChange={(e) => setMesaPostres(e.target.value)} onMouseUp={Event =>{
                   sumar();
                 }}>
                     <option selected disabled>
@@ -244,7 +276,7 @@ export const AgregarEvento = (props: any) => {
               <div className="content-select">
                 <p>
                   <label>Barra de coctelería</label>
-                  <select name="barraCocteleria" onChange={handleInputChange} onMouseUp={Event =>{
+                  <select name="barraCocteleria" onChange={(e) => setBarraCocteleria(e.target.value)} onMouseUp={Event =>{
                   sumar();
                 }}>
                     <option selected disabled>
@@ -258,7 +290,7 @@ export const AgregarEvento = (props: any) => {
               <div className="content-select">
                 <p>
                   <label>Decoración</label>
-                  <select name="decoracion" onChange={handleInputChange} onMouseUp={Event =>{
+                  <select name="decoracion" onChange={(e) => setDecoracion(e.target.value)} onMouseUp={Event =>{
                   sumar();
                 }}>
                     <option selected disabled>
@@ -272,7 +304,7 @@ export const AgregarEvento = (props: any) => {
               <div className="content-select">
                 <p>
                   <label>Fotografía y video</label>
-                  <select name="fotoVideo" onChange={handleInputChange} onMouseUp={Event =>{
+                  <select name="fotoVideo" onChange={(e) => setFotoVideo(e.target.value)} onMouseUp={Event =>{
                   sumar();
                 }}>
                     <option selected disabled>
@@ -286,7 +318,7 @@ export const AgregarEvento = (props: any) => {
               <div className="content-select">
                 <p>
                   <label>Barra de madera</label>
-                  <select name="barraMadera" onChange={handleInputChange} onMouseUp={Event =>{
+                  <select name="barraMadera" onChange={(e) => setBarraMadera(e.target.value)} onMouseUp={Event =>{
                   sumar();
                 }}>
                     <option selected disabled>
@@ -299,9 +331,7 @@ export const AgregarEvento = (props: any) => {
               </div>
               <div>
                 <p>
-                  <button onClick={(e) =>{
-                    limpiar();
-                  }}>Enviar</button>
+                  <button type='submit'>Enviar</button>
                 </p>
               </div>
             </form>
