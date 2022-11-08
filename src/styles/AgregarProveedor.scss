@@ -1,5 +1,17 @@
+.bodyAgregarProveedor {
+    //background: #181818;
+    background-image: url(./src/assets/Fondo4.jpg);
+    color: #fff;
+    //line-height: 1.6;
+    font-family: 'Roboto', sans-serif;
+    //padding: 0 1.5em;
+    background-size: cover;
+    height: 100%;
+    
+  }
+
 .proveedor{
-    background: #000000;
+    //background: #000000;
     color: rgb(255, 255, 255);
     line-height: 1.6;
     font-family: 'Quicksand', sans-serif;
@@ -11,10 +23,10 @@
     }
 
     .content {
-        max-width: 900px;
-        margin-left: auto;
+        max-width: 1250px;
+        margin-left: 100px;
         margin-right: auto;
-        padding: 0.1em;
+        padding: 1em;
     }
     
     .logo{
@@ -70,7 +82,7 @@
         font-size: 0.8em;
         background-color: #e9c5c5;
         display: inline-block;
-        width: 120%;
+        width: 220%;
         cursor: pointer;
           padding: 2px 30px;
           height: 30px;

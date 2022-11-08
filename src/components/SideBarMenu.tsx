@@ -23,7 +23,7 @@ export function SideBarMenu() {
 
   const items: SideBarMenuItem[] = [
     //Aquí se ponen los diferentes iconos del menú
-    {
+    /*{
       id: "1",
       label: "Agregar Administrador",
       icon: BiUserPlus,
@@ -40,12 +40,12 @@ export function SideBarMenu() {
       label: "Registrar Clientes",
       icon: BiUser,
       url: "/",
-    },
+    },*/
     {
       id: "4",
-      label: "Clientes",
+      label: "Proveedores",
       icon: BiGroup,
-      url: "/",
+      url: "/Proveedores",
     },
     {
       id: "5",
@@ -57,7 +57,7 @@ export function SideBarMenu() {
       id: "6",
       label: "Eventos",
       icon: BiCabinet,
-      url: "/",
+      url: "/Eventos",
     },
     {
       id: "7",
@@ -69,11 +69,11 @@ export function SideBarMenu() {
       id: "8",
       label: "Cotizaciones",
       icon: BiCopyAlt,
-      url: "/",
+      url: "/Cotizaciones",
     },
     {
       id: "9",
-      label: "Proveedores",
+      label: "Agregar Proveedores",
       icon: BiTask,
       url: "/AgregarProveedor",
     },

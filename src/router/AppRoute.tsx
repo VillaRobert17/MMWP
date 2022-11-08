@@ -7,7 +7,6 @@ export const AppRoute = () => {
       {//<DashboardRoutes/>}
       }
   <DashboardRoutes/>
-
     </>
   );
 };

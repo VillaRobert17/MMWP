@@ -1,0 +1,27 @@
+.bodyProveedores {
+    //background: #181818;
+    background-image: url(./src/assets/Fondo4.jpg);
+    color: #fff;
+    //line-height: 1.6;
+    font-family: 'Roboto', sans-serif;
+    //padding: 0 1.5em;
+    height: 100%;
+
+  }
+
+  .content {
+    max-width: 1300px;
+    margin-left: 78px;
+    margin-right: auto;
+    padding: 0.5em;
+    height: 100%;
+  }
+
+  
+// ENCABEZADO 
+  .logo {
+    text-align: center;
+    font-size: 2em;
+    font-family: 'Dancing Script', cursive;
+    color: black;
+  }

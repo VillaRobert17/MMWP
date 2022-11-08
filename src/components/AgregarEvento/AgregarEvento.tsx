@@ -47,6 +47,17 @@ export const AgregarEvento = (props: any) => {
     document.getElementsByTagName("input")[5].value = "";
     document.getElementsByTagName("input")[6].value = "";
     document.getElementsByTagName("textarea")[0].value = "";
+    document.getElementsByTagName("select")[0].value="Seleccione";
+    document.getElementsByTagName("select")[1].value="Seleccione";
+    document.getElementsByTagName("select")[2].value="Seleccione";
+    document.getElementsByTagName("select")[3].value="Seleccione";
+    document.getElementsByTagName("select")[4].value="Seleccione";
+    document.getElementsByTagName("select")[5].value="Seleccione";
+    document.getElementsByTagName("select")[6].value="Seleccione";
+    document.getElementsByTagName("select")[7].value="Seleccione";
+    document.getElementsByTagName("select")[8].value="Seleccione";
+    document.getElementsByTagName("select")[9].value="Seleccione";
+    document.getElementsByTagName("select")[10].value="Seleccione";
     
 }
 
@@ -63,7 +74,7 @@ export const AgregarEvento = (props: any) => {
  
   
   return (
-    <div className="bodyAgregalrEvento" id="form" onSubmit={handleSubmit}>
+    <div className="bodyAgregarEvento" id="form" onSubmit={handleSubmit}>
       <section className="content header">
       <style>
       @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&display=swap');

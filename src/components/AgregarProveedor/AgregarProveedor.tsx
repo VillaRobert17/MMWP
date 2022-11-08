@@ -2,7 +2,8 @@ import React from 'react'
 import {useState} from "react";
 import {db} from '../../firebase'
 import "../../styles/AgregarProveedor.scss"
-import {collection, addDoc, Timestamp} from 'firebase/firestore'
+import {collection, addDoc,getDocs, Timestamp} from 'firebase/firestore'
+
 
 
 export const AgregarProveedor = () => {
@@ -27,6 +28,8 @@ export const AgregarProveedor = () => {
                 descripcion: descripcion,
             })
             console.log("AGREGADA")
+            limpiar();
+            
         }catch (err) {
             alert(err)
         }
@@ -38,13 +41,21 @@ export const AgregarProveedor = () => {
         document.getElementsByTagName("input")[2].value = "";
         document.getElementsByTagName("input")[3].value = "";
         document.getElementsByTagName("textarea")[0].value = "";
+        document.getElementsByTagName("select")[0].value = "Selecciona";
+        
     }
     
     return (
+        <div className="bodyAgregarProveedor" id="form" onSubmit={handleSubmit}>
+        <section className="content header">
+        <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&display=swap');
+        </style>
+          <h2 > Agregar Proveedor</h2>
+         </section>
+
         <div className="proveedor" onSubmit={handleSubmit}>
             <div className="content">
-
-                <h1 className="logo">Proveedores</h1>
 
                 <div className="contact-wrapper animated bounceInUp">
                     <div className="contact-form">
@@ -112,11 +123,13 @@ export const AgregarProveedor = () => {
                         <h4>Descripción</h4>
                         <textarea name="descripcion" onChange={(e) => setDescripcion(e.target.value)}></textarea>
                             <button type='submit' onClick={handleSubmit}>Agregar proveedor</button>
-                            <button type='submit' onClick={limpiar}>Limpiar</button>
+                            
                     </div>                                        
+                </div>
                 </div>
 
             </div>
         </div>
+        
     )
 }
