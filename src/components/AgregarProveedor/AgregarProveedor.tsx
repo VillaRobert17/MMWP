@@ -2,7 +2,7 @@ import React from 'react'
 import {useState} from "react";
 import {db} from '../../firebase'
 import "../../styles/AgregarProveedor.scss"
-import {collection, addDoc,getDocs, Timestamp} from 'firebase/firestore'
+import {collection, getDoc, getDocs, getFirestore, Timestamp, query, where, doc, deleteDoc,addDoc} from 'firebase/firestore';
 import Swal from 'sweetalert2'
 
 
