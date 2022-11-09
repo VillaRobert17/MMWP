@@ -25,3 +25,18 @@
     font-family: 'Dancing Script', cursive;
     color: black;
   }
+
+  .content-button button{
+    //background: #fbcbcb;
+    background-image: url(./src/assets/Fondo5.jpg);
+    font-size: 1em;
+    color: rgb(0, 0, 0);
+    font-weight: bolder;
+    border: 1;
+    text-transform: uppercase;
+    padding: 1em;
+    outline: 0;
+    text-align: center;
+    margin: 0.5rem 0 0 2rem;
+    margin-left: 620px ;
+}
