@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import "../../styles/Eventos.scss";
 import profileImage from "../../assets/Logo.png";
 import {collection, getDoc, getDocs, getFirestore, Timestamp, query, where, doc, deleteDoc} from 'firebase/firestore';

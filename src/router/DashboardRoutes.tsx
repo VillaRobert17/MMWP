@@ -9,6 +9,7 @@ import {db} from '../firebase'
 import {collection, addDoc, Timestamp} from 'firebase/firestore';
 import { AgregarProveedor } from "../components/AgregarProveedor/AgregarProveedor";
 import EditProv from '../components/Proveedores/EditProv';
+import EditEvent from '../components/Eventos/EditEvent.jsx';
 
 
 export const DashboardRoutes = () => {
@@ -28,6 +29,7 @@ export const DashboardRoutes = () => {
             <Route path="/Eventos" element={<Eventos/>} />
             <Route path="/Proveedores" element={<Proveedores/>} />
             <Route path='/EditProv/:id' element={<EditProv/>} />
+            <Route path='/EditEvent/:id' element={<EditEvent/>} />
           </Routes>
         </div>
       </BrowserRouter>
