@@ -6,11 +6,12 @@
     font-family: 'Roboto', sans-serif;
     //padding: 0 1.5em;
     height: 100%;
+    width: 100%;
 
   }
 
   .content {
-    max-width: 1300px;
+    max-width: 1250px;
     margin-left: 78px;
     margin-right: auto;
     padding: 0.5em;
@@ -25,3 +26,14 @@
     font-family: 'Dancing Script', cursive;
     color: black;
   }
+
+  .tablaP{
+    max-height:100%;
+    height:auto;
+  }
+  
+  .table{
+    box-shadow: 2px 2px 5px #999;
+    background-color: #FFFFFF;
+  }
+  
