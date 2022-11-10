@@ -275,7 +275,7 @@ export const AgregarEvento = () => {
               </div>
               <div className="content-select">
                 <p>
-                  <label>Barra de coctelería</label>
+                  <label>Coctelería</label>
                   <select name="barraCocteleria" onChange={(e) => setBarraCocteleria(e.target.value)} onMouseUp={Event =>{
                   sumar();
                 }}>
