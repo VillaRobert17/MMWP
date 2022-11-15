@@ -7,6 +7,7 @@ import {
   BiCalendarPlus,
   BiCopyAlt,
   BiGroup,
+  BiLogOut,
   BiTask,
   BiUser,
   BiUserPlus,
@@ -45,19 +46,19 @@ export function SideBarMenu() {
       id: "4",
       label: "Proveedores",
       icon: BiGroup,
-      url: "/Proveedores",
+      url: "Proveedores",
     },
     {
       id: "5",
       label: "Agregar Evento",
       icon: BiCalendarPlus,
-      url: "/AgregarEvento",
+      url: "AgregarEvento",
     },
     {
       id: "6",
       label: "Eventos",
       icon: BiCabinet,
-      url: "/Eventos",
+      url: "Eventos",
     },
     {
       id: "7",
@@ -69,14 +70,20 @@ export function SideBarMenu() {
       id: "8",
       label: "Cotizaciones",
       icon: BiCopyAlt,
-      url: "/Cotizaciones",
+      url: "Cotizaciones",
     },
     {
       id: "9",
       label: "Agregar Proveedores",
       icon: BiTask,
-      url: "/AgregarProveedor",
+      url: "AgregarProveedor",
     },
+    {
+      id: "10",
+      label: "Cerrar Sesión",
+      icon: BiLogOut,
+      url: "logOut",
+    }
   ];
 
   const card: SideBarMenuCard = {

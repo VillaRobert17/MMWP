@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "../../styles/Eventos.scss";
-import profileImage from "../../assets/Logo.png";
-import {collection, getDoc, getDocs, getFirestore, Timestamp, query, where, doc, deleteDoc} from 'firebase/firestore';
-import { useParams } from "react-router-dom";
+import {collection, getDocs,doc, deleteDoc} from 'firebase/firestore';
 import { db } from "../../firebase";
-import { async } from "@firebase/util";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button,Modal, ModalHeader,ModalBody,ModalFooter,FormGroup,InputGroup,FormLabel, Form} from "react-bootstrap";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Button} from "react-bootstrap";
+
 import {Link} from 'react-router-dom';
 import Swal from 'sweetalert2'
 
