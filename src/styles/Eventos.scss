@@ -36,4 +36,20 @@
     box-shadow: 2px 2px 5px #999;
     background-color: #FFFFFF;
   }
+
+  .modal{
+    display: block !important; /* I added this to see the modal, you don't need this */
+}
+
+/* Important part */
+.modal-dialog{
+    overflow-y: initial !important
+}
+.modal-body{
+    height: 70vh;
+    overflow-y: auto;
+    scrollbar-color: #fccb90 #F5F5F5;
+}
+
+
   

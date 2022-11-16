@@ -111,12 +111,9 @@ useEffect(() => {
                     <td>{prov.estado}</td>
                     <td>{prov.descripcion}</td>
                     <td>
-                      <Link to={`/EditProv/${prov.id}`} className="btn btn-primary">Editar</Link>
+                    <Link to={`/Home/EditProv/${prov.id}`} className="btn btn-primary">Editar</Link>
                       &nbsp;
                       <Button onClick={() =>{ confirmDelete(prov.id)}} className="btn btn-danger">Borrar</Button>
-                    </td>
-                    <td>
-                      
                     </td>
                   </tr>
               ))}

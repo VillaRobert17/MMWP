@@ -6,8 +6,7 @@ import {Cotizaciones} from '../components/Cotizaciones/Cotizaciones';
 import {Eventos} from '../components/Eventos/Eventos';
 import {Proveedores} from '../components/Proveedores/Proveedores';
 import { AgregarProveedor } from "../components/AgregarProveedor/AgregarProveedor";
-import EditProv from '../components/Proveedores/EditProv';
-import EditEvent from '../components/Eventos/EditEvent.jsx';
+import {EditProv} from '../components/Proveedores/EditProv';
 import { LogOut } from "../components/login/LogOut";
 
 
@@ -21,14 +20,13 @@ export const DashboardRoutes = () => {
         <div className="container-Routes">
           <Routes>
           <Route path="" element={<Principal/>} />
+            <Route path="/logOut" element={<LogOut/>} />
             <Route path="/AgregarEvento" element={<AgregarEvento/>} />
             <Route path="/AgregarProveedor" element={<AgregarProveedor/>} />
             <Route path="/Cotizaciones" element={<Cotizaciones/>} />
             <Route path="/Eventos" element={<Eventos/>} />
             <Route path="/Proveedores" element={<Proveedores/>} />
-            <Route path='/EditProv/:id' element={<EditProv/>} />
-            <Route path='/EditEvent/:id' element={<EditEvent/>} />
-            <Route path="/logOut" element={<LogOut/>} />
+            <Route path="/EditProv/:id" element={<EditProv/>} />
           </Routes>
         </div>
     </>
