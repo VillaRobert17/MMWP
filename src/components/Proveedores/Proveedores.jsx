@@ -98,6 +98,7 @@ useEffect(() => {
                 <th>Calle</th>
                 <th>Colonia</th>
                 <th>Estado</th>
+                <th>Categoria</th>
                 <th>Descripción</th>
               </tr>
             </thead>
@@ -109,6 +110,7 @@ useEffect(() => {
                     <td>{prov.calleprov}</td>
                     <td>{prov.coloniaprov}</td>
                     <td>{prov.estado}</td>
+                    <td>{prov.categoria}</td>
                     <td>{prov.descripcion}</td>
                     <td>
                     <Link to={`/Home/EditProv/${prov.id}`} className="btn btn-primary">Editar</Link>

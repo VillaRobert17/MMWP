@@ -36,12 +36,21 @@ No importa si tu evento es petite, llena de color con detalles florales y lucir�
         <div className="box-container">
 
             <div className="box">
-                <h1 className="title">Servicios</h1>
-                <p>labore molestias consectetur veniam</p>
+                <h1 className="title">Asesoramos</h1>
+                <p>
+Con nuestro equipo de trabajo, usted y sus ideas; le asesoramos y hacemos toda una planeación alrededor de las mismas para lograr materializar su evento en una experiencia memorable.</p>
             </div>
             <div className="box">
-                <h1 className="title">Lorem</h1>
-                <p>labore molestias consectetur veniam</p>
+                <h1 className="title">Materializamos</h1>
+                <p>
+Nos encargamos de inspeccionar hasta el más mínimo detalle de su evento desde la organización en nuestras oficinas, la logística en la sede, la operación y la post-producción de sus eventos.</p>
+            </div>
+            <div className="box">
+                <h1 className="title">Creamos </h1>
+                <p>
+                
+Su evento no termina cuando retiramos el equipo y nos marchamos de la sede; sino que ahí comienza una relación cliente proveedor que mantenemos viva para tener juntos futuros éxitos.
+                </p>
             </div>
             </div>
       </section>

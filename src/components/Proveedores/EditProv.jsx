@@ -26,7 +26,9 @@ export const EditProv = () => {
   const [calleprov, setCalleprov] = useState('');
   const [coloniaprov, setColoniaprov] = useState('');
   const [estado, setEstado] = useState('');
+  const [categoria, setCategoria] = useState('');
   const [descripcion, setDescripcion] = useState('');
+
 
   const navigate = useNavigate();
   const { id } = useParams();
@@ -40,6 +42,7 @@ export const EditProv = () => {
       calleprov: calleprov,
       coloniaprov: coloniaprov,
       estado: estado,
+      categoria,categoria,
       descripcion: descripcion,
     };
     await updateDoc(prove, data);
@@ -63,6 +66,7 @@ export const EditProv = () => {
       setCalleprov(prove.data().calleprov);
       setColoniaprov(prove.data().coloniaprov);
       setEstado(prove.data().estado);
+      setCategoria(prove.data().categoria);
       setDescripcion(prove.data().descripcion);
     } else {
       //alert producto no existe
@@ -170,6 +174,21 @@ export const EditProv = () => {
                     </p>
                   </div>
                 </form>
+                <form action="">
+                                <div className="content-select">
+                                    <p>
+                                        <label>Categoría</label>
+                                        <select name="categoria" value="categoria" onChange={(e) => setCategoria(e.target.value)}>
+                                            <option value="comida">Comida</option>
+                                            <option value="casino">Casino</option>
+                                            <option value="bebidas">Bebidas</option>
+                                            <option value="decoraciones">Decoracion</option>
+                                            <option value="musica">Musica</option>
+                                            <option value="inmueble">Inmueble</option>
+                                        </select>
+                                    </p>
+                                </div>
+                            </form>
               </form>
             </div>
             <div className="contact-info col">
