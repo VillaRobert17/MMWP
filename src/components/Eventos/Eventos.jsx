@@ -25,6 +25,9 @@ import {
   Form,
 } from "react-bootstrap";
 import Swal from "sweetalert2";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { format } from "date-fns";
 
 export const Eventos = () => {
   const [ID, setID] = useState("");
@@ -37,6 +40,11 @@ export const Eventos = () => {
   const [correo, setCorreo] = useState("");
   const [precoti, setPrecoti] = useState("");
   const [especificaciones, setEspecificaciones] = useState("");
+  //--------------------------------------------
+  const [nombre, setNombre] = useState('')
+  const [apellidos, setApellidos] = useState('')
+  const [fecha, setFecha] = useState(new Date());
+  //------------------------------------------
   const [pista, setPista] = useState("");
   const [banquete, setBanquete] = useState("");
   const [cristaleria, setCristaleria] = useState("");
@@ -61,6 +69,9 @@ export const Eventos = () => {
       setCorreo(event.data().correo);
       setPrecoti(event.data().precoti);
       setEspecificaciones(event.data().especificaciones);
+      setNombre(event.data().nombre);
+      setApellidos(event.data().apellidos)
+      setFecha(event.data().fecha);
       setPista(event.data().pista);
       setBanquete(event.data().banquete);
       setCristaleria(event.data().cristaleria);
@@ -81,7 +92,45 @@ export const Eventos = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [event, setEvent] = useState([]);
   const eventCollection = collection(db, "links");
+  //----------------------------------------
 
+  const update = async (e) => {
+    e.preventDefault();
+    const event = doc(db, "links", ID);
+    const data = {
+      tipoevento: tipoevento,
+      estilo: estilo,
+      adultos: adultos,
+      ninos: ninos,
+      ciudad: ciudad,
+      numinvit: numinvit,
+      correo: correo,
+      precoti: precoti,
+      especificaciones: especificaciones,
+      pista: pista,
+      banquete: banquete,
+      cristaleria: cristaleria,
+      musica: musica,
+      lugarEvento: lugarEvento,
+      mesaPostres: mesaPostres,
+      barraCocteleria: barraCocteleria,
+      decoracion: decoracion,
+      fotoVideo: fotoVideo,
+      barraMadera: barraMadera,
+    };
+    await updateDoc(event, data);
+    await updateDoc(event, data);
+    getEvent();
+    console.log("ACTUALIZAR 3: "+ID)
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Datos actualizados correctamente",
+      showConfirmButton: false,
+      timer: 2000,
+    });
+  };
+  
   const showModal = () => {
     setIsOpen(true);
   };
@@ -125,6 +174,18 @@ export const Eventos = () => {
       }
     });
   };
+
+  function sumar(){
+    const $total = document.getElementById('numinvit');
+    let subtotal = 0;
+    [ ...document.getElementsByClassName( "monto" ) ].forEach( function ( element ) {
+      if((element).value !== '') {
+        subtotal += parseFloat((element).value);
+      }
+    });
+    ($total).value = subtotal.toString();
+    setNuminvit(subtotal.toString())
+   }
 
   return (
     <>
@@ -189,8 +250,8 @@ export const Eventos = () => {
         <ModalHeader closeButton>
           <Modal.Title>Editar</Modal.Title>
         </ModalHeader>
-        <Modal.Body>
-          <form class="row g-3 ">
+        <Modal.Body >
+          <form class="row g-3" onSubmit={update}>
             <div class="col-md-6">
               <label>Tipo de Evento</label>
               <select class="form-select" value={tipoevento} onChange={(e) => setTipoevento(e.target.value)}>
@@ -205,15 +266,19 @@ export const Eventos = () => {
             </div>
             <div class="col-md-6">
               <label>Estilo</label>
-              <input type="text" class="form-control" value={estilo}></input>
+              <input type="text" class="form-control" value={estilo} onChange={(e) => setEstilo(e.target.value)}></input>
             </div>
             <div class="col-md-6">
               <label>Adultos</label>
-              <input type="number" class="form-control" value={adultos} onChange={(e) => setAdultos(e.target.value)}></input>
+              <input type="number"  className="monto form-control" value={adultos} onChange={(e) => setAdultos(e.target.value)} onKeyUp={Event =>{
+                  sumar();
+                }}></input>
             </div>
             <div class="col-md-6">
               <label>Niños</label>
-              <input type="number" class="form-control" value={ninos} onChange={(e) => setNinos(e.target.value)}></input>
+              <input type="number"  className="monto form-control" value={ninos} onChange={(e) => setNinos(e.target.value)} onKeyUp={Event =>{
+                  sumar();
+                }}></input>
             </div>
             <div class="col-md-6">
               <label>Ciudad</label>
@@ -221,7 +286,7 @@ export const Eventos = () => {
             </div>
             <div class="col-md-6">
               <label>No. invitados</label>
-              <input type="number" class="form-control" value={numinvit} onChange={(e) => setNuminvit(e.target.value)}></input>  
+              <input type="number" class="form-control"id="numinvit" disabled value={numinvit} onChange={(e) => setNuminvit(e.target.value)}></input>  
             </div>
             <div class="col-md-6">
               <label>Correo</label>
@@ -234,6 +299,14 @@ export const Eventos = () => {
             <div class="col-md-6">
               <label>Especificaciones</label>
               <textarea class="form-control" name="pista" value={especificaciones} onChange={(e) => setEspecificaciones(e.target.value)}></textarea> 
+            </div>
+            <div class="col-md-6">
+              <label>Nombre</label>
+              <input type="text" class="form-control" value={nombre} onChange={(e) => setNombre(e.target.value)}></input>  
+            </div>
+            <div class="col-md-6">
+              <label>Apellidos</label>
+              <input type="text" class="form-control" value={apellidos} onChange={(e) => setApellidos(e.target.value)}></input>  
             </div>
             <div class="col-md-6">
               <label>Pista</label>
@@ -320,7 +393,7 @@ export const Eventos = () => {
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <button type="button" class="btn btn-success">Actualizar</button>
+          <button type="button" class="btn btn-success" onClick={update}>Actualizar</button>
           <button type="button" class="btn btn-danger" onClick={()=>{
             confirmDelete(ID)
           }}>Eliminar</button>           

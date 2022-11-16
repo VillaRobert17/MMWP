@@ -42,7 +42,7 @@ export const EditProv = () => {
       calleprov: calleprov,
       coloniaprov: coloniaprov,
       estado: estado,
-      categoria,categoria,
+      categoria: categoria,
       descripcion: descripcion,
     };
     await updateDoc(prove, data);

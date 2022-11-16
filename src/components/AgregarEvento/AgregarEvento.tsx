@@ -21,9 +21,12 @@ export const AgregarEvento = () => {
   const [correo, setCorreo] = useState('')
   const [precoti, setPrecoti] = useState('')
   const [especificaciones, setEspecificaciones] = useState('')
+  //--------------------------------------------
   const [nombre, setNombre] = useState('')
   const [apellidos, setApellidos] = useState('')
-  const [fecha, setFecha] = useState('')
+  const [fecha, setFecha] = useState<Date>(new Date());
+  const [estadoEvent, setEstadoEvent] = useState('')
+  //------------------------------------------
   const [pista, setPista] = useState('')
   const [banquete, setBanquete] = useState('')
   const [cristaleria, setCristaleria] = useState('')
@@ -61,8 +64,7 @@ export const AgregarEvento = () => {
           decoracion: decoracion,
           fotoVideo: fotoVideo,
           barraMadera: barraMadera,
-          
-
+          estadoEvent: estadoEvent,
         })
         Swal.fire({
           position: 'top-end',
@@ -120,12 +122,18 @@ const [selectedDate, setSelectedDate] = useState(null);
     }
   });
   ($total! as HTMLInputElement)!.value = subtotal.toString();
+  setNuminvit(subtotal.toString())
  }
- 
 
+ function sumar2(){
+    const $total = document.getElementById('numinvit');
+    var num1 = document.getElementById("id_adultos")! as HTMLInputElement;
+    var num2 = document.getElementById("id_ninos")! as HTMLInputElement;
+    var result;
 
- 
-
+    result = Number(num1) + Number(num2);
+    ($total! as HTMLInputElement)!.value = result.toString();
+ }
 
   return (
     <div className="bodyAgregarEvento" id="form" onSubmit={handleSubmit}>
@@ -226,7 +234,7 @@ const [selectedDate, setSelectedDate] = useState(null);
              
               <p>
                 <label>No. invitados</label>               
-                <input type="text" id="numinvit" name="numinvit" onChange={(e) => setNuminvit(e.target.value)}/>    
+                <input type="text" id="numinvit" name="numinvit" value={numinvit} />    
               </p>
               <p>
                 <label>Correo</label>
@@ -262,16 +270,15 @@ const [selectedDate, setSelectedDate] = useState(null);
               
               <p>
                 <label>Fecha Acordada</label>
-                <input type="text" name="fecha" id="fecha" className="fechas"onChange={(e) => setFecha(e.target.value)} onKeyUp={Event =>{
-                
-                }}/>
               </p>
             </form>
 
             <p>
               <label>Fechas</label>
-                < DatePicker name="fechadis" id ="fechadis" className="fechas"
-                selected={selectedDate} onChange={date => setSelectedDate(date) } />
+                <DatePicker
+                  selected={fecha}
+                  onChange={(date: Date) => setFecha(date!)}
+                />
                 
               </p>
 
