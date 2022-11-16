@@ -1,6 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "../../styles/Principal.scss";
 import profileImage from "../../assets/Boda.jpg";
+
+
+function Redirecciona() {
+      // 👇️ redirects to an external URL
+      window.location.replace('https://www.facebook.com/marinamezawp/photos');
+  }
+
 
 export const Principal = () => {
   return (
@@ -47,7 +54,7 @@ No importa si tu evento es petite, llena de color con detalles florales y lucir�
       </section>
 
       <section className="boton">
-      <button>Ver Fotos</button>
+      <button onClick={Redirecciona}>Ver Fotos</button>
       </section>
 
     </div>
