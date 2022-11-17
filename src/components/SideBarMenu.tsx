@@ -24,12 +24,7 @@ export function SideBarMenu() {
 
   const items: SideBarMenuItem[] = [
     //Aquí se ponen los diferentes iconos del menú
-    /*{
-      id: "1",
-      label: "Agregar Administrador",
-      icon: BiUserPlus,
-      url: "/",
-    },
+    /*
     {
       id: "2",
       label: "Administradores",
@@ -42,6 +37,12 @@ export function SideBarMenu() {
       icon: BiUser,
       url: "/",
     },*/
+    {
+      id: "1",
+      label: "Agregar Administrador",
+      icon: BiUserPlus,
+      url: "AgregarAdministrador",
+    },
     {
       id: "4",
       label: "Proveedores",

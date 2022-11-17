@@ -9,6 +9,7 @@ import { AgregarProveedor } from "../components/AgregarProveedor/AgregarProveedo
 import EditProv from '../components/Proveedores/EditProv';
 import EditEvent from '../components/Eventos/EditEvent.jsx';
 import { LogOut } from "../components/login/LogOut";
+import { RegistrarUsuarioAdm } from "../components/RegistrarUsuario/RegistrarUsuarioAdm";
 
 
 export const DashboardRoutes = () => {
@@ -20,6 +21,7 @@ export const DashboardRoutes = () => {
         </div>
         <div className="container-Routes">
           <Routes>
+          <Route path="/AgregarAdministrador" element={<RegistrarUsuarioAdm/>} />
           <Route path="" element={<Principal/>} />
             <Route path="/AgregarEvento" element={<AgregarEvento/>} />
             <Route path="/AgregarProveedor" element={<AgregarProveedor/>} />
