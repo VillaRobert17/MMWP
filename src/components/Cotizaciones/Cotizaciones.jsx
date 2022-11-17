@@ -92,6 +92,7 @@ export const Cotizaciones = () => {
     e.preventDefault();
     const event = doc(db, "links", ID);
     const data = {
+      precoti: precoti,
       estadoEvent: estadoEvent
     };
     await updateDoc(event, data);
@@ -200,9 +201,12 @@ export const Cotizaciones = () => {
                 <option value="En espera">En espera</option>
               </select>
             </div>
+            <div class="mb-3">
+              <label class="form-label">Cotización</label>
+              <input type="number" class="form-control" value={precoti} onChange={(e) => setPrecoti(e.target.value)}></input>   
+            </div>
           </form>
-        </ModalBody>
-        
+        </ModalBody>       
         <ModalFooter>
           <button type="button" class="btn btn-success" onClick={update}> 
             Actualizar
