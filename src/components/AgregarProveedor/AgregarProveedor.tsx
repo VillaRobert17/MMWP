@@ -16,6 +16,7 @@ export const AgregarProveedor = () => {
     const [coloniaprov, setColoniaprov] = useState('')
     const [estado, setEstado] = useState('')
     const [descripcion, setDescripcion] = useState('')
+    const [categoria, setCategoria] = useState('')
 
     const handleSubmit = async (e:any) => {
         e.preventDefault()
@@ -27,6 +28,7 @@ export const AgregarProveedor = () => {
                 coloniaprov: coloniaprov,
                 estado: estado,
                 descripcion: descripcion,
+                categoria:categoria
             })
             Swal.fire({
                 position: 'top-end',
@@ -53,6 +55,7 @@ export const AgregarProveedor = () => {
         document.getElementsByTagName("input")[3].value = "";
         document.getElementsByTagName("textarea")[0].value = "";
         document.getElementsByTagName("select")[0].value = "Selecciona";
+        document.getElementsByTagName("select")[1].value = "Selecciona";
         
     }
     
@@ -77,7 +80,7 @@ export const AgregarProveedor = () => {
                             </p>
                             <p>
                                 <label>Télefono</label>
-                                <input type="text" name="telpro"  onChange={(e) => setTelpro(e.target.value)}/>
+                                <input type="number" name="telpro"  onChange={(e) => setTelpro(e.target.value)}/>
                             </p>
                             <p>
                                 <label>Calle</label>
@@ -123,6 +126,22 @@ export const AgregarProveedor = () => {
                                             <option value="veracruz">Veracruz</option>
                                             <option value="yucatan">Yucatán</option>
                                             <option value="zacatecas">Zacatecas</option>
+                                        </select>
+                                    </p>
+                                </div>
+                            </form>
+
+                            <form action="">
+                                <div className="content-select">
+                                    <p>
+                                        <label>Categoría</label>
+                                        <select name="categoria" onChange={(e) => setCategoria(e.target.value)}>
+                                            <option value="comida">Comida</option>
+                                            <option value="casino">Casino</option>
+                                            <option value="bebidas">Bebidas</option>
+                                            <option value="decoraciones">Decoracion</option>
+                                            <option value="musica">Musica</option>
+                                            <option value="inmueble">Inmueble</option>
                                         </select>
                                     </p>
                                 </div>
