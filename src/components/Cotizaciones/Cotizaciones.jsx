@@ -150,7 +150,7 @@ export const Cotizaciones = () => {
                   <th>Apellidos</th>
                   <th>Tipo Evento</th>
                   <th>No. Invitados</th>
-                  <th>Pre-cotización</th>
+                  <th>Cotización</th>
                   <th>Estado del evento</th>
                   <th></th>
                 </tr>
@@ -202,6 +202,7 @@ export const Cotizaciones = () => {
             </div>
           </form>
         </ModalBody>
+        
         <ModalFooter>
           <button type="button" class="btn btn-success" onClick={update}> 
             Actualizar

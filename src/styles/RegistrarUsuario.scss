@@ -1,4 +1,45 @@
-.registrar-usuarios {
+/*.registrar-usuarios {
+  
+}*/
+
+.bodyRegistro{
+      //background: #181818;
+      background-image: url(../assets/Fondo4.jpg);
+      color: black;
+      //line-height: 1.6;
+      font-family: 'Roboto', sans-serif;
+      //padding: 0 1.5em;
+      height: 100%;
+}
+
+.header {
+  display: flex;
+  //justify-content: center;
+  //align-items: center;
+  color: black;
+  font-size: 75px;
+  font-family:cursive;
+  text-align: center;
+  margin-right: 170px;
+  margin-left: 215px;
+  background-image: url(../assets/Fondo5.jpg);
+  background-size: 150px 150px;
+  margin-bottom: 30px;
+  
+}
+
+
+
+.header {
+  height: 3vh !important;
+  background-color: pink;
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  
+  
+}
+
+///////////////////////////////////////////////////////
 
   .form-register {
     width: 400px;
@@ -8,25 +49,29 @@
     margin-top: 100px;
     border-radius: 4px;
     font-family: "calibri";
-    color: white;
+    color: black;
     box-shadow: 7px 13px 37px #000;
+    background-image: url(../assets/marina.png);
   }
 
   .form-register h4 {
     font-size: 22px;
     margin-bottom: 20px;
+    text-align: center;
+    color: black;
   }
 
   .controls {
     width: 100%;
-    background: #24303c;
+    background: white;
     padding: 10px;
     border-radius: 4px;
     margin-bottom: 16px;
     border: 1px solid #e9c5c5;
     font-family: "calibri";
     font-size: 18px;
-    color: white;
+    color: black;
+    
   }
 
   .form-register p {
@@ -48,11 +93,11 @@
 
   .form-register .botons {
     width: 100%;
-    background: #e9c5c5;
+    background-image: url(../assets/Fondo5.jpg);
     border: none;
     padding: 12px;
     color: black;
     margin: 16px 0;
-    font-size: 16px;
+    font-size: 20px;
   }
-}
+

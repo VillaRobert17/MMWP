@@ -1,6 +1,6 @@
 .bodyAgregarProveedor {
     //background: #181818;
-    background-image: url(./src/assets/Fondo4.jpg);
+    background-image: url(../assets/Fondo4.jpg);
     color: #fff;
     //line-height: 1.6;
     font-family: 'Roboto', sans-serif;
@@ -77,12 +77,15 @@
         position: relative;
     }
      
+    
     .content-select select{
         font-weight: bolder;
         font-size: 0.8em;
-        background-color: #e9c5c5;
+        //background-color: #e9c5c5;
+        background-image: url(../assets/Fondo5.jpg);
         display: inline-block;
-        width: 220%;
+        width: 237%;
+        text-align: center;
         cursor: pointer;
           padding: 2px 30px;
           height: 30px;
@@ -122,7 +125,7 @@
         font-size: 15px;
     }
       .contact-info button{
-        background: #fbcbcb;
+        //background: #fbcbcb;
         font-size: 0.6em;
         color: rgb(0, 0, 0);
         font-weight: bolder;
@@ -132,6 +135,8 @@
         outline: 0;
         text-align: center;
         margin: 0.5rem 0 0 2rem;
+        background-image: url(../assets/Fondo5.jpg);
+        
     }
     .contact-info button:hover{
         background: #f7c6f3;

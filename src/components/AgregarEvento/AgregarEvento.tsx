@@ -10,6 +10,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 
 
+
 export const AgregarEvento = () => {
   
   const [tipoevento, setTipoevento] = useState('')
@@ -85,7 +86,7 @@ export const AgregarEvento = () => {
 }
 
 const [selectedDate, setSelectedDate] = useState(null);
-
+const [total, setSuma] = useState(0);  
 
   function limpiar() {
     document.getElementsByTagName("input")[0].value = "";
@@ -135,6 +136,8 @@ const [selectedDate, setSelectedDate] = useState(null);
     ($total! as HTMLInputElement)!.value = result.toString();
  }
 
+ 
+
   return (
     <div className="bodyAgregarEvento" id="form" onSubmit={handleSubmit}>
       <section className="content header">
@@ -163,6 +166,12 @@ const [selectedDate, setSelectedDate] = useState(null);
                     <option value="eventosSociales">Eventos Sociales</option>
                     <option value="catering">Catering</option>
                     <option value="conciertosEspectaculos">Conciertos y Espectaculos</option>
+                    <option value="boda">Boda</option>
+                    <option value="xv años">XV Años</option>
+                    <option value="bautizos">Bautizos</option>
+                    <option value="graduaciones">Graduaciones</option>
+                    
+                    
                   </select>
                 </p>
               </div>
@@ -243,9 +252,9 @@ const [selectedDate, setSelectedDate] = useState(null);
                 }}/>
               </p>
               <p>
-                <label>Pre-cotización</label>
+                <label>Presupuesto</label>
                 <input type="number" name="precoti" onChange={(e) => setPrecoti(e.target.value)} onKeyUp={(e) => {
-                    sumar();
+                    
                 }}/>
               </p>
               <p>
@@ -283,16 +292,11 @@ const [selectedDate, setSelectedDate] = useState(null);
             <form action="">
               <div className="content-select">
                 <p>
-                  <label>Pista</label>
-                  <select name="pista" className="coti" onChange={(e) => setPista(e.target.value)} onMouseUp={Event =>{
-                  sumar();
-                  
-                }}>
-                    <option selected disabled >
-                      Seleccione
-                    </option>
-                    <option value="disco">Disco</option>
+                <label>Pista</label>
+                  <select name="pista" onChange={(e) => setPista(e.target.value)} >
+                    <option selected disabled >Seleccione</option>
                     <option value="baile">Baile</option>
+                    <option value="no">No</option>
                   </select>
                 </p>
               </div>
@@ -314,7 +318,7 @@ const [selectedDate, setSelectedDate] = useState(null);
                 <p>
                   <label>Cristalería</label>
                   <select name="cristaleria" onChange={(e) => setCristaleria(e.target.value)} onMouseUp={Event =>{
-                  sumar();
+                 
                 }}>
                     <option selected disabled>
                       Seleccione

@@ -4,6 +4,9 @@ import "../../styles/RegistrarUsuario.scss";
 import { db } from "../../firebase";
 import Swal from "sweetalert2";
 
+
+
+
 export const RegistrarUsuarioAdm = () => {
   const { values, handleInputChange, setValues } = useForm({
     usuario: "",
@@ -81,6 +84,17 @@ export const RegistrarUsuarioAdm = () => {
   };
 
   return (
+
+    
+    <div className="bodyRegistro" id="form"  >
+<section className="content header">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&display=swap');
+</style>
+  <h2 > Registro Administradores</h2>
+ </section>
+ 
+
     <div className="registrar-usuarios">
       <section className="form-register">
         <h4>Registrar Usuario</h4>
@@ -106,6 +120,7 @@ export const RegistrarUsuarioAdm = () => {
           <input className="botons" type="submit" value="Registrar" />
         </form>
       </section>
+    </div>
     </div>
   );
 };

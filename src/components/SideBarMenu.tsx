@@ -47,13 +47,6 @@ export function SideBarMenu() {
       url: "AgregarAdministrador",
     },
     {
-      id: "4",
-      label: "Proveedores",
-      icon: BiGroup,
-      url: "Proveedores",
-    },
-   
-    {
       id: "5",
       label: "Agregar Evento",
       icon: BiCalendarPlus,
