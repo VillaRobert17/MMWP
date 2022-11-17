@@ -30,31 +30,33 @@ export const Login = () => {
     },
   });
 
-
   const handleSubmit = (e: any) => {
     e.preventDefault();
+
     getDocs(usersCollection).then((querySnapshot) => {
       if (querySnapshot.empty) {
         msgError.fire({
           title: "Usuario o contraseña incorrectos",
         });
       } else {
+        let i=0;
         querySnapshot.forEach((doc) => {
           if (
             doc.data().usuario === usuario &&
             doc.data().password === password
           ) {
             localStorage.setItem("uid", usuario!);
-            navigate('/Home');
-          } else {
-            msgError.fire({
-              title: "Usuario o contraseña incorrectos",
-            });
+            navigate("/Home");
+            i++;
           }
         });
+        if(i==0){
+          msgError.fire({
+            title: "Usuario o contraseña incorrectos",
+          });
+        }
       }
     });
-
   };
 
   return (

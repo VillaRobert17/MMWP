@@ -8,6 +8,7 @@ import {Proveedores} from '../components/Proveedores/Proveedores';
 import { AgregarProveedor } from "../components/AgregarProveedor/AgregarProveedor";
 import {EditProv} from '../components/Proveedores/EditProv';
 import { LogOut } from "../components/login/LogOut";
+import { RegistrarUsuarioAdm } from "../components/RegistrarUsuario/RegistrarUsuarioAdm";
 
 
 export const DashboardRoutes = () => {
@@ -19,6 +20,7 @@ export const DashboardRoutes = () => {
         </div>
         <div className="container-Routes">
           <Routes>
+          <Route path="/AgregarAdministrador" element={<RegistrarUsuarioAdm/>} />
           <Route path="" element={<Principal/>} />
             <Route path="/logOut" element={<LogOut/>} />
             <Route path="/AgregarEvento" element={<AgregarEvento/>} />

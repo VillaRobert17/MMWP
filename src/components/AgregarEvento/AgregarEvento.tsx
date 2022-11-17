@@ -268,13 +268,11 @@ const [selectedDate, setSelectedDate] = useState(null);
                 }}/>
               </p>
               
-              <p>
-                <label>Fecha Acordada</label>
-              </p>
+              
             </form>
 
             <p>
-              <label>Fechas</label>
+              <label>Fecha</label>
                 <DatePicker
                   selected={fecha}
                   onChange={(date: Date) => setFecha(date!)}
