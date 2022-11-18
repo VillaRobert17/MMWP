@@ -27,6 +27,7 @@ import {
 import Swal from "sweetalert2";
 
 export const Cotizaciones = () => {
+  const [buscar, setBuscar] = useState("");
   const [ID, setID] = useState("");
   const [tipoevento, setTipoevento] = useState("");
   const [estilo, setEstilo] = useState("");
@@ -143,6 +144,13 @@ export const Cotizaciones = () => {
           <h2> Cotizaciones</h2>
         </section>
         <div className="content">
+        <div class="mb-3">
+        <input type="text" class="form-control" placeholder="Buscar por Nombre/Tipo de evento/Estado"
+        onChange={(e)=>{
+          setBuscar(e.target.value);
+        }}
+        ></input>
+        </div>
           <div className="tablaP table-responsive">
             <table class="table table-striped table-hover table-bordered">
               <thead>
@@ -157,7 +165,17 @@ export const Cotizaciones = () => {
                 </tr>
               </thead>
               <tbody>
-                {event.map((even) => (
+                {event.filter((val)=>{
+                if(buscar === ""){
+                  return val;
+                }else if(
+                  val.nombre.toLowerCase().includes(buscar.toLowerCase()) ||
+                  val.tipoevento.toLowerCase().includes(buscar.toLowerCase()) ||
+                  val.estadoEvent.toLowerCase().includes(buscar.toLowerCase())
+                ){
+                  return val;
+                }
+              }).map((even) => (
                   <tr key={even.id}>
                     <td>{even.nombre}</td>
                     <td>{even.apellidos}</td>

@@ -30,6 +30,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import { format } from "date-fns";
 
 export const Eventos = () => {
+  
+  const [buscar, setBuscar] = useState("");
   const [ID, setID] = useState("");
   const [tipoevento, setTipoevento] = useState("");
   const [estilo, setEstilo] = useState("");
@@ -197,6 +199,13 @@ export const Eventos = () => {
           </style>
           <h2> Eventos</h2>
         </section>
+        <div class="mb-3">
+        <input type="text" class="form-control" placeholder="Buscar tipo de evento..."
+        onChange={(e)=>{
+          setBuscar(e.target.value);
+        }}
+        ></input>
+        </div>
         <div className="tablaP table-responsive">
           <table class="table table-striped table-hover table-bordered">
             <thead>
@@ -215,7 +224,15 @@ export const Eventos = () => {
               </tr>
             </thead>
             <tbody>
-              {event.map((even) => (
+              {event.filter((val)=>{
+                if(buscar === ""){
+                  return val;
+                }else if(
+                  val.tipoevento.toLowerCase().includes(buscar.toLowerCase())
+                ){
+                  return val;
+                }
+              }).map((even) => (
                 <tr key={even.id}>
                   <td>{even.tipoevento}</td>
                   <td>{even.estilo}</td>
