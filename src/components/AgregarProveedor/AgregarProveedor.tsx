@@ -95,6 +95,7 @@ export const AgregarProveedor = () => {
                                     <p>
                                         <label>Estado</label>
                                         <select name="estado" onChange={(e) => setEstado(e.target.value)}>
+                                            <option selected disabled>Seleccione</option>
                                             <option value="aguascalientes">Aguascalientes</option>
                                             <option value="disco">Baja California</option>
                                             <option value="bcj">Baja California Sur</option>
@@ -136,6 +137,7 @@ export const AgregarProveedor = () => {
                                     <p>
                                         <label>Categoría</label>
                                         <select name="categoria" onChange={(e) => setCategoria(e.target.value)}>
+                                            <option selected disabled>Seleccione</option>
                                             <option value="comida">Comida</option>
                                             <option value="casino">Casino</option>
                                             <option value="bebidas">Bebidas</option>

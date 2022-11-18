@@ -53,7 +53,7 @@ export const EditProv = () => {
       showConfirmButton: false,
       timer: 2000
     })
-    navigate('/Proveedores/')
+    navigate('/Home/Proveedores/')
     
   };
 
@@ -178,7 +178,8 @@ export const EditProv = () => {
                                 <div className="content-select">
                                     <p>
                                         <label>Categoría</label>
-                                        <select name="categoria" value="categoria" onChange={(e) => setCategoria(e.target.value)}>
+                                        <select name="categoria" value={categoria} onChange={(e) => setCategoria(e.target.value)}>
+                                            <option selected disabled>Seleccione</option>
                                             <option value="comida">Comida</option>
                                             <option value="casino">Casino</option>
                                             <option value="bebidas">Bebidas</option>
