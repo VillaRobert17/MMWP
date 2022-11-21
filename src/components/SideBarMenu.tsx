@@ -154,6 +154,7 @@ export function SideBarMenu() {
         });
       } else {
         Swal.fire(`No ingresaste la contraseña`);
+        checkbox && (checkbox.checked = true);
       }
     }
   };
