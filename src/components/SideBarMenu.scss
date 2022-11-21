@@ -1,39 +1,156 @@
-@import './commons.scss';
+@import "./commons.scss";
 
 .SideBarMenu {
-    background-color: #222;
-    color: white;
-    //position: relative;
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 110%;
+
+
+
+.ocultar{
+    display: none;
+}
+  background-color: #222;
+  color: white;
+  //position: relative;
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 110%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 2em;
+
+  @include transition(width);
+
+  &.expanded {
+    width: 150px;
+  }
+
+  &.collapsed {
+    width: 75px;
+  }
+
+  .menuButton {
     display: flex;
-    flex-direction: column;
-    padding-top: 2em;
+    justify-content: left;
+  }
+
+  .hamburgerButton {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    //color:pink;
+    padding: 20px;
+    width: 68px;
+  }
+
+  .boton-cover {
+
+    margin-right: 20px;
     
-    @include transition(width);
-
-    &.expanded{
-        width: 150px;
+    .toggle-button-cover {
+      display: table-cell;
+      position: relative;
+      width: 200px;
+      height: 140px;
+      box-sizing: border-box;
     }
 
-    &.collapsed{
-        width: 75px;
+    .button-cover:before {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      font-size: 12px;
+      line-height: 1;
+      padding: 5px;
     }
 
-    .menuButton{
-        display: flex;
-        justify-content: left;
+    .button-cover,
+    .knobs,
+    .layer {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
     }
 
-    .hamburgerButton{
-        cursor:pointer;
-        border: none;
-        background-color:transparent;
-        //color:pink;
-        padding: 20px;
-        width: 68px;
-
+    .button {
+      position: relative;
+      top: 50%;
+      width: 73.5px;
+      height: 36px;
+      margin: -20px auto 0 -3px;
+      overflow: hidden;
     }
+
+    .button.r,
+    .button.r .layer {
+      border-radius: 100px;
+    }
+
+    .button.b2 {
+      border-radius: 2px;
+    }
+
+    .checkbox {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      opacity: 0;
+      cursor: pointer;
+      z-index: 3;
+    }
+
+    .knobs {
+      z-index: 2;
+    }
+
+    .layer {
+      width: 100%;
+      transition: 0.3s ease all;
+      z-index: 1;
+    }
+    #button-10 .knobs:before,
+    #button-10 .knobs:after,
+    #button-10 .knobs span {
+      position: absolute;
+      top: 4px;
+      width: 26px;
+      height: 25px;
+      font-size: 10px;
+      font-weight: bold;
+      text-align: center;
+      line-height: 1;
+      padding: 9px 4px;
+      border-radius: 2px;
+      transition: 0.3s ease all;
+    }
+
+    #button-10 .knobs:before {
+      content: "";
+      left: 8px;
+      background-color: #03a9f4;
+    }
+
+    #button-10 .knobs:after {
+      content: "USR";
+      right: 4px;
+      color: #4e4e4e;
+    }
+
+    #button-10 .knobs span {
+      display: inline-block;
+      left: 4px;
+      z-index: 1;
+    }
+
+    #button-10 .checkbox:checked + .knobs span {
+      color: #4e4e4e;
+    }
+
+    #button-10 .checkbox:checked + .knobs:before {
+      left: 45px;
+      background-color: #f44336;
+    }
+  }
 }

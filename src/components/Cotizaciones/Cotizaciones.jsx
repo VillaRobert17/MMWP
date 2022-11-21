@@ -2,27 +2,19 @@ import React, { useEffect, useState } from "react";
 import "../../styles/Cotizaciones.scss";
 import {
   collection,
-  addDoc,
   getDocs,
-  Timestamp,
   updateDoc,
   getDoc,
   doc,
-  deleteDoc,
 } from "firebase/firestore";
 import { db } from "../../firebase";
 import "bootstrap/dist/css/bootstrap.min.css";
-import profileImage from "../../assets/Logo.png";
 import {
   Button,
   Modal,
   ModalHeader,
   ModalBody,
   ModalFooter,
-  FormGroup,
-  InputGroup,
-  FormLabel,
-  Form,
 } from "react-bootstrap";
 import Swal from "sweetalert2";
 
@@ -89,12 +81,12 @@ export const Cotizaciones = () => {
   };
   //-----------------------------------------
   const update = async (e) => {
-    console.log("ID 1: "+ID)
+    console.log("ID 1: " + ID);
     e.preventDefault();
     const event = doc(db, "links", ID);
     const data = {
       precoti: precoti,
-      estadoEvent: estadoEvent
+      estadoEvent: estadoEvent,
     };
     await updateDoc(event, data);
     await updateDoc(event, data);
@@ -144,13 +136,16 @@ export const Cotizaciones = () => {
           <h2> Cotizaciones</h2>
         </section>
         <div className="content">
-        <div class="mb-3">
-        <input type="text" class="form-control" placeholder="Buscar por Nombre/Tipo de evento/Estado"
-        onChange={(e)=>{
-          setBuscar(e.target.value);
-        }}
-        ></input>
-        </div>
+          <div class="mb-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Buscar por Nombre/Tipo de evento/Estado"
+              onChange={(e) => {
+                setBuscar(e.target.value);
+              }}
+            ></input>
+          </div>
           <div className="tablaP table-responsive">
             <table class="table table-striped table-hover table-bordered">
               <thead>
@@ -165,37 +160,43 @@ export const Cotizaciones = () => {
                 </tr>
               </thead>
               <tbody>
-                {event.filter((val)=>{
-                if(buscar === ""){
-                  return val;
-                }else if(
-                  val.nombre.toLowerCase().includes(buscar.toLowerCase()) ||
-                  val.tipoevento.toLowerCase().includes(buscar.toLowerCase()) ||
-                  val.estadoEvent.toLowerCase().includes(buscar.toLowerCase())
-                ){
-                  return val;
-                }
-              }).map((even) => (
-                  <tr key={even.id}>
-                    <td>{even.nombre}</td>
-                    <td>{even.apellidos}</td>
-                    <td>{even.tipoevento}</td>
-                    <td>{even.numinvit}</td>
-                    <td>{even.precoti}</td>
-                    <td>{even.estadoEvent}</td>
-                    <td>
-                      <Button
-                        onClick={() => {
-                          getEventById(even.id)
-                          showModal();
-                          setID(even.id);
-                        }}
-                      >
-                        Editar Estado
-                      </Button>
-                    </td>
-                  </tr>
-                ))}
+                {event
+                  .filter((val) => {
+                    if (buscar === "") {
+                      return val;
+                    } else if (
+                      val.nombre.toLowerCase().includes(buscar.toLowerCase()) ||
+                      val.tipoevento
+                        .toLowerCase()
+                        .includes(buscar.toLowerCase()) ||
+                      val.estadoEvent
+                        .toLowerCase()
+                        .includes(buscar.toLowerCase())
+                    ) {
+                      return val;
+                    }
+                  })
+                  .map((even) => (
+                    <tr key={even.id}>
+                      <td>{even.nombre}</td>
+                      <td>{even.apellidos}</td>
+                      <td>{even.tipoevento}</td>
+                      <td>{even.numinvit}</td>
+                      <td>{even.precoti}</td>
+                      <td>{even.estadoEvent}</td>
+                      <td>
+                        <Button
+                          onClick={() => {
+                            getEventById(even.id);
+                            showModal();
+                            setID(even.id);
+                          }}
+                        >
+                          Editar Estado
+                        </Button>
+                      </td>
+                    </tr>
+                  ))}
               </tbody>
             </table>
           </div>
@@ -210,7 +211,11 @@ export const Cotizaciones = () => {
           <form onSubmit={update}>
             <div class="mb-3">
               <label class="form-label">Estado del evento</label>
-              <select class="form-select" value={estadoEvent} onChange={(e) => setEstadoEvent(e.target.value)}>
+              <select
+                class="form-select"
+                value={estadoEvent}
+                onChange={(e) => setEstadoEvent(e.target.value)}
+              >
                 <option selected disabled>
                   Seleccione
                 </option>
@@ -221,12 +226,17 @@ export const Cotizaciones = () => {
             </div>
             <div class="mb-3">
               <label class="form-label">Cotización</label>
-              <input type="number" class="form-control" value={precoti} onChange={(e) => setPrecoti(e.target.value)}></input>   
+              <input
+                type="number"
+                class="form-control"
+                value={precoti}
+                onChange={(e) => setPrecoti(e.target.value)}
+              ></input>
             </div>
           </form>
-        </ModalBody>       
+        </ModalBody>
         <ModalFooter>
-          <button type="button" class="btn btn-success" onClick={update}> 
+          <button type="button" class="btn btn-success" onClick={update}>
             Actualizar
           </button>
           <button

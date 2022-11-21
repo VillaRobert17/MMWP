@@ -2,7 +2,7 @@ import { useForm } from "../../hooks/useForm";
 import "../../styles/login.scss";
 //import Title from './components/title/Title'
 //import Label from './components/label/Label'
-import { collection, getDocs, doc, deleteDoc } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
@@ -14,6 +14,7 @@ export const Login = () => {
   });
 
   const { usuario, password } = values;
+  
   const usersCollection = collection(db, "users");
   const navigate = useNavigate();
 

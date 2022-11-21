@@ -13,7 +13,7 @@ export default function SideBarMenuItemView({
     isOpen,
 }: SideBarMenuItemViewProps){
     return (
-    <NavLink className='SideBarMenuItemView' to={item.url}>
+    <NavLink className='SideBarMenuItemView' to={item.url} id={item.id} >
         <a href={item.url}>
             <div className={classNames('ItemContent', isOpen ? '' : 'collapsed')}>
                 <div className="icon">

@@ -4,9 +4,6 @@ import "../../styles/RegistrarUsuario.scss";
 import { db } from "../../firebase";
 import Swal from "sweetalert2";
 
-
-
-
 export const RegistrarUsuarioAdm = () => {
   const { values, handleInputChange, setValues } = useForm({
     usuario: "",
@@ -31,7 +28,7 @@ export const RegistrarUsuarioAdm = () => {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    if(usuario == "" || password == ""){
+    if (usuario == "" || password == "") {
       msgError.fire({
         title: "Debe llenar todos los campos",
       });
@@ -80,47 +77,44 @@ export const RegistrarUsuarioAdm = () => {
         });
       }
     });
-
   };
 
   return (
-
-    
-    <div className="bodyRegistro" id="form"  >
-<section className="content header">
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&display=swap');
-</style>
-  <h2 > Registro Administradores</h2>
- </section>
- 
-
-    <div className="registrar-usuarios">
-      <section className="form-register">
-        <h4>Registrar Usuario</h4>
-        <form onSubmit={handleSubmit}>
-          <input
-            className="controls"
-            type="text"
-            name="usuario"
-            id="usuario"
-            placeholder="Nombre de usuario"
-            onChange={handleInputChange}
-            value={usuario}
-          />
-          <input
-            className="controls"
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Contraseña"
-            onChange={handleInputChange}
-            value={password}
-          />
-          <input className="botons" type="submit" value="Registrar" />
-        </form>
+    <div className="bodyRegistro" id="form">
+      <section className="content header">
+        <style>
+          @import
+          url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&display=swap');
+        </style>
+        <h2> Registro Administradores</h2>
       </section>
-    </div>
+
+      <div className="registrar-usuarios">
+        <section className="form-register">
+          <h4>Registrar Usuario</h4>
+          <form onSubmit={handleSubmit}>
+            <input
+              className="controls"
+              type="text"
+              name="usuario"
+              id="usuario"
+              placeholder="Nombre de usuario"
+              onChange={handleInputChange}
+              value={usuario}
+            />
+            <input
+              className="controls"
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Contraseña"
+              onChange={handleInputChange}
+              value={password}
+            />
+            <input className="botons" type="submit" value="Registrar" />
+          </form>
+        </section>
+      </div>
     </div>
   );
 };
