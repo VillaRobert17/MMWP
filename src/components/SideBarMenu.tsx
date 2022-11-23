@@ -9,8 +9,10 @@ import {
   BiLogOut,
   BiTask,
   BiUserPlus,
+  BiUserCircle,
 } from "react-icons/bi";
 import { FaHome } from "react-icons/fa";
+import {GrUserAdmin} from "react-icons/Gr";
 import profileImage from "../assets/Logo.png";
 
 import SideBarMenuItemView from "./SideBarMenuItemView";
@@ -52,6 +54,12 @@ export function SideBarMenu() {
       url: "AgregarAdministrador",
     },
     {
+      id: "9",
+      label: "Administradores",
+      icon: BiUserCircle,
+      url: "Administradores",
+    },
+    {
       id: "3",
       label: "Agregar Evento",
       icon: BiCalendarPlus,
@@ -87,6 +95,7 @@ export function SideBarMenu() {
       icon: BiLogOut,
       url: "logOut",
     },
+   
   ];
 
   const card: SideBarMenuCard = {
@@ -117,6 +126,8 @@ export function SideBarMenu() {
       document.getElementById("5")?.classList.add("ocultar");
       document.getElementById("6")?.classList.add("ocultar");
       document.getElementById("7")?.classList.add("ocultar");
+      document.getElementById("9")?.classList.add("ocultar");
+      
     } else {
       //pedir contraseña
       const { value: password } = await Swal.fire({
@@ -150,6 +161,8 @@ export function SideBarMenu() {
             document.getElementById("5")?.classList.remove("ocultar");
             document.getElementById("6")?.classList.remove("ocultar");
             document.getElementById("7")?.classList.remove("ocultar");
+            document.getElementById("9")?.classList.remove("ocultar");
+           
           }
         });
       } else {
