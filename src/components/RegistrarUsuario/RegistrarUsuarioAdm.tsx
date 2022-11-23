@@ -6,11 +6,15 @@ import Swal from "sweetalert2";
 
 export const RegistrarUsuarioAdm = () => {
   const { values, handleInputChange, setValues } = useForm({
+    nombre: "",
+    apellidos: "",
+    rol: "",
     usuario: "",
     password: "",
+    
   });
 
-  const { usuario, password } = values;
+  const { nombre,apellidos,rol,usuario, password,} = values;
   const usersCollection = collection(db, "users");
 
   const msgError = Swal.mixin({
@@ -28,7 +32,7 @@ export const RegistrarUsuarioAdm = () => {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    if (usuario == "" || password == "") {
+    if ( nombre == "" || apellidos == "" || rol == "" || usuario == "" || password == "" ) {
       msgError.fire({
         title: "Debe llenar todos los campos",
       });
@@ -37,8 +41,12 @@ export const RegistrarUsuarioAdm = () => {
     getDocs(usersCollection).then(async (querySnapshot) => {
       if (querySnapshot.empty) {
         await addDoc(collection(db, "users"), {
+          nombre: nombre,
+          apellidos:apellidos,
+          rol:rol,
           usuario: usuario,
           password: password,
+         
         });
         Swal.fire({
           position: "top-end",
@@ -48,8 +56,13 @@ export const RegistrarUsuarioAdm = () => {
           timer: 2000,
         });
         setValues({
+          
+          nombre: "",
+          apellidos: "",
+          rol: "",
           usuario: "",
           password: "",
+          
         });
       } else {
         querySnapshot.forEach(async (doc) => {
@@ -59,6 +72,9 @@ export const RegistrarUsuarioAdm = () => {
             });
           } else {
             await addDoc(collection(db, "users"), {
+              nombre: nombre,
+              apellidos:apellidos,
+              rol:rol,
               usuario: usuario,
               password: password,
             });
@@ -70,6 +86,9 @@ export const RegistrarUsuarioAdm = () => {
               timer: 2000,
             });
             setValues({
+              nombre: "",
+              apellidos: "",
+              rol: "",
               usuario: "",
               password: "",
             });
@@ -86,19 +105,53 @@ export const RegistrarUsuarioAdm = () => {
           @import
           url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&display=swap');
         </style>
-        <h2> Registro Administradores</h2>
+        <h2> Registro</h2>
       </section>
 
       <div className="registrar-usuarios">
         <section className="form-register">
-          <h4>Registrar Usuario</h4>
+          <h4>Registrar Cuenta</h4>
           <form onSubmit={handleSubmit}>
+          <input
+              className="controls"
+              type="text"
+              name="nombre"
+              id="nombre"
+              placeholder="Nombre"
+              onChange={handleInputChange}
+              value={nombre}
+            />
+            <input
+              className="controls"
+              type="text"
+              name="apellidos"
+              id="apellidos"
+              placeholder="Apellidos"
+              onChange={handleInputChange}
+              value={apellidos}
+            />
+            <select
+              className="controls"
+              name="rol"
+              id="rol"
+              placeholder="Seleccione un rol para la cuenta"
+              onChange={handleInputChange}
+              value={rol}
+              
+              >
+              <option selected disabled >Seleccione un rol para la cuenta</option>
+              <option value="administrador">Administrador</option>
+              <option value="cliente">Cliente</option>
+             </select>
+            
+
+             
             <input
               className="controls"
               type="text"
               name="usuario"
               id="usuario"
-              placeholder="Nombre de usuario"
+              placeholder="Usuario"
               onChange={handleInputChange}
               value={usuario}
             />

@@ -49,7 +49,7 @@ export function SideBarMenu() {
     },
     {
       id: "2",
-      label: "Agregar Administrador",
+      label: "Registro",
       icon: BiUserPlus,
       url: "AgregarAdministrador",
     },

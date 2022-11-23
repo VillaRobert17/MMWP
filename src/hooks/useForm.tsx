@@ -1,6 +1,9 @@
 import { useState } from "react";
 
 interface Data {
+  nombre?: string;
+  apellidos?: string;
+  rol?: string;
   usuario?: string;
   password?: string;
 }
