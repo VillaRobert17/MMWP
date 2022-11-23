@@ -395,7 +395,7 @@ const [total, setSuma] = useState(0);
                     <option selected disabled>
                       Seleccione
                     </option>
-                    <option value="rustica">Rustica</option>
+                    <option value="rustica">Rústica</option>
                     <option value="antigua">Antigua</option>
                   </select>
                 </p>
@@ -439,7 +439,7 @@ const [total, setSuma] = useState(0);
             <div className="contact-info-logo">
               <img src={profileImage} width="160" height="160" />
             </div>
-            <h4>Para más información o dudas,contactanos en: </h4>
+            <h4>Para más información o dudas, contáctanos en: </h4>
             <ul>
               <li>
                 <i className="fas fa-map-marker-alt"></i> Tepic, Nayarit, México
