@@ -55,7 +55,7 @@ export function SideBarMenu() {
     },
     {
       id: "9",
-      label: "Administradores",
+      label: "Cuentas",
       icon: BiUserCircle,
       url: "Administradores",
     },
