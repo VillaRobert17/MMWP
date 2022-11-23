@@ -18,6 +18,7 @@ export const AgregarEvento = () => {
   const [adultos, setAdultos] = useState('')
   const [ninos, setNinos] = useState('')
   const [ciudad, setCiudad] = useState('')
+  const [ciudadOrigen, setCiudadOrigen] = useState('')
   const [numinvit, setNuminvit] = useState('')
   const [correo, setCorreo] = useState('')
   const [precoti, setPrecoti] = useState('')
@@ -51,6 +52,7 @@ export const AgregarEvento = () => {
           adultos: adultos,
           ninos: ninos,
           ciudad: ciudad,
+          ciudadOrigen:ciudadOrigen,
           numinvit: numinvit,
           correo: correo,
           precoti: precoti,
@@ -99,6 +101,7 @@ const [total, setSuma] = useState(0);
     document.getElementsByTagName("input")[7].value = "";
     document.getElementsByTagName("input")[8].value = "";
     document.getElementsByTagName("input")[9].value = "";
+    document.getElementsByTagName("input")[10].value = "";
     document.getElementsByTagName("textarea")[0].value = "";
     document.getElementsByTagName("select")[0].value="Seleccione";
     document.getElementsByTagName("select")[1].value="Seleccione";
@@ -177,7 +180,7 @@ const [total, setSuma] = useState(0);
               </div>
               <p>
                 <label>Estilo</label>
-                <input type="text" name="estilo" onChange={(e) => setEstilo(e.target.value)} onKeyUp={Event =>{
+                <input type="text" name="estilo" required onChange={(e) => setEstilo(e.target.value)} onKeyUp={Event =>{
                   sumar();
                 }}/>
               </p>
@@ -240,7 +243,12 @@ const [total, setSuma] = useState(0);
                   </select>
                 </p>
               </div>
-             
+              <p>
+                <label>Ciudad</label>
+                <input type="text" name="ciudadOrigen" onChange={(e) => setCiudadOrigen(e.target.value)} onKeyUp={Event =>{
+                  sumar();
+                }}/>
+              </p>
               <p>
                 <label>No. invitados</label>               
                 <input type="text" id="numinvit" name="numinvit" value={numinvit} />    

@@ -23,14 +23,14 @@ export const Principal = () => {
 
 
        <section className="content sau">
-       <h1 className="title">Conocenos</h1>
+       <h1 className="title">Conócenos</h1>
         <p>
           Somos una empresa dedicada al Diseño, planeación, coordinación y logística para tu evento. 
       Cuidamos cada detalle para que vivas al máximo la experiencia de tu gran día, con nuestra experiencia, y creatividad a tu servicio.
         
       ¡Nos encanta formar parte de esos primeros momentos! 
 No importa si tu evento es petite, llena de color con detalles florales y lucirá increíble.
-#casateconmigo
+#cásateconmigo
         </p>
         
         <div className="box-container">

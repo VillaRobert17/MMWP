@@ -7,6 +7,7 @@ import { Eventos } from "../components/Eventos/Eventos";
 import { Proveedores } from "../components/Proveedores/Proveedores";
 import { AgregarProveedor } from "../components/AgregarProveedor/AgregarProveedor";
 import { EditProv } from "../components/Proveedores/EditProv";
+import {Administradores} from "../components/Administradores/Administradores";
 import { LogOut } from "../components/login/LogOut";
 import { RegistrarUsuarioAdm } from "../components/RegistrarUsuario/RegistrarUsuarioAdm";
 
@@ -30,6 +31,7 @@ export const DashboardRoutes = () => {
           <Route path="/Eventos" element={<Eventos />} />
           <Route path="/Proveedores" element={<Proveedores />} />
           <Route path="/EditProv/:id" element={<EditProv />} />
+          <Route path="/Administradores" element={<Administradores />} />
         </Routes>
         
       </div>
