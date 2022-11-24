@@ -11,10 +11,9 @@ export const RegistrarUsuarioAdm = () => {
     rol: "",
     usuario: "",
     password: "",
-    
   });
 
-  const { nombre,apellidos,rol,usuario, password,} = values;
+  const { nombre, apellidos, rol, usuario, password } = values;
   const usersCollection = collection(db, "users");
 
   const msgError = Swal.mixin({
@@ -32,21 +31,27 @@ export const RegistrarUsuarioAdm = () => {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    if ( nombre == "" || apellidos == "" || rol == "" || usuario == "" || password == "" ) {
+    if (
+      nombre == "" ||
+      apellidos == "" ||
+      rol == "" ||
+      usuario == "" ||
+      password == ""
+    ) {
       msgError.fire({
         title: "Debe llenar todos los campos",
       });
       return;
     }
     getDocs(usersCollection).then(async (querySnapshot) => {
+      let i = 0;
       if (querySnapshot.empty) {
         await addDoc(collection(db, "users"), {
           nombre: nombre,
-          apellidos:apellidos,
-          rol:rol,
+          apellidos: apellidos,
+          rol: rol,
           usuario: usuario,
           password: password,
-         
         });
         Swal.fire({
           position: "top-end",
@@ -56,13 +61,11 @@ export const RegistrarUsuarioAdm = () => {
           timer: 2000,
         });
         setValues({
-          
           nombre: "",
           apellidos: "",
           rol: "",
           usuario: "",
           password: "",
-          
         });
       } else {
         querySnapshot.forEach(async (doc) => {
@@ -70,30 +73,32 @@ export const RegistrarUsuarioAdm = () => {
             msgError.fire({
               title: "El usuario ya existe",
             });
-          } else {
-            await addDoc(collection(db, "users"), {
-              nombre: nombre,
-              apellidos:apellidos,
-              rol:rol,
-              usuario: usuario,
-              password: password,
-            });
-            Swal.fire({
-              position: "top-end",
-              icon: "success",
-              title: "Usuario agregado correctamente",
-              showConfirmButton: false,
-              timer: 2000,
-            });
-            setValues({
-              nombre: "",
-              apellidos: "",
-              rol: "",
-              usuario: "",
-              password: "",
-            });
+            i++;
           }
         });
+        if (i == 0) {
+          await addDoc(collection(db, "users"), {
+            nombre: nombre,
+            apellidos: apellidos,
+            rol: rol,
+            usuario: usuario,
+            password: password,
+          });
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Usuario agregado correctamente",
+            showConfirmButton: false,
+            timer: 2000,
+          });
+          setValues({
+            nombre: "",
+            apellidos: "",
+            rol: "",
+            usuario: "",
+            password: "",
+          });
+        }
       }
     });
   };
@@ -112,7 +117,7 @@ export const RegistrarUsuarioAdm = () => {
         <section className="form-register">
           <h4>Registrar Cuenta</h4>
           <form onSubmit={handleSubmit}>
-          <input
+            <input
               className="controls"
               type="text"
               name="nombre"
@@ -137,15 +142,14 @@ export const RegistrarUsuarioAdm = () => {
               placeholder="Seleccione un rol para la cuenta"
               onChange={handleInputChange}
               value={rol}
-              
-              >
-              <option selected disabled >Seleccione un rol para la cuenta</option>
+            >
+              <option selected disabled>
+                Seleccione un rol para la cuenta
+              </option>
               <option value="administrador">Administrador</option>
               <option value="cliente">Cliente</option>
-             </select>
-            
+            </select>
 
-             
             <input
               className="controls"
               type="text"
