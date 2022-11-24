@@ -38,6 +38,7 @@ export const RegistrarUsuarioAdm = () => {
       usuario == "" ||
       password == ""
     ) {
+      console.log(nombre, apellidos, rol, usuario, password)
       msgError.fire({
         title: "Debe llenar todos los campos",
       });
