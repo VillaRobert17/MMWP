@@ -35,7 +35,7 @@ export const RegistrarUsuarioAdm = () => {
       nombre == "" ||
       apellidos == "" ||
       rol == "" ||
-      usuario == "" ||
+      usuario == "1" ||
       password == ""
     ) {
       console.log(nombre, apellidos, rol, usuario, password)
@@ -144,7 +144,7 @@ export const RegistrarUsuarioAdm = () => {
               onChange={handleInputChange}
               value={rol}
             >
-              <option selected disabled>
+              <option selected value="1">
                 Seleccione un rol para la cuenta
               </option>
               <option value="administrador">Administrador</option>
