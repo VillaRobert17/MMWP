@@ -122,12 +122,6 @@ export function SideBarMenu() {
   const handleCheckBox = async () => {
     const checkbox = document.querySelector("#adm_usr") as HTMLInputElement;
     if (checkbox?.checked) {
-      document.getElementById("2")?.classList.add("ocultar");
-      document.getElementById("4")?.classList.add("ocultar");
-      document.getElementById("5")?.classList.add("ocultar");
-      document.getElementById("6")?.classList.add("ocultar");
-      document.getElementById("7")?.classList.add("ocultar");
-      document.getElementById("9")?.classList.add("ocultar");
       //eliminate class active
       document.getElementById("2")?.classList.remove("active");
       document.getElementById("4")?.classList.remove("active");
@@ -135,6 +129,14 @@ export function SideBarMenu() {
       document.getElementById("6")?.classList.remove("active");
       document.getElementById("7")?.classList.remove("active");
       document.getElementById("9")?.classList.remove("active");
+      //add class ocultar
+      document.getElementById("2")?.classList.add("ocultar");
+      document.getElementById("4")?.classList.add("ocultar");
+      document.getElementById("5")?.classList.add("ocultar");
+      document.getElementById("6")?.classList.add("ocultar");
+      document.getElementById("7")?.classList.add("ocultar");
+      document.getElementById("9")?.classList.add("ocultar");
+
       navigate("/Home");
     } else {
       //pedir contraseña
