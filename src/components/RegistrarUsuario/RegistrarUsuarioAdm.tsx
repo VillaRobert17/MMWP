@@ -143,7 +143,7 @@ export const RegistrarUsuarioAdm = () => {
               onChange={handleInputChange}
               value={rol}
             >
-              <option selected disabled>
+              <option selected>
                 Seleccione un rol para la cuenta
               </option>
               <option value="administrador">Administrador</option>
@@ -158,6 +158,7 @@ export const RegistrarUsuarioAdm = () => {
               placeholder="Usuario"
               onChange={handleInputChange}
               value={usuario}
+              
             />
             <input
               className="controls"

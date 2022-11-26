@@ -412,7 +412,7 @@ export const Eventos = () => {
         <Modal.Footer>
           <button type="button" class="btn btn-success" onClick={update}>Actualizar</button>
           <button type="button" class="btn btn-danger" onClick={()=>{
-            confirmDelete(ID)
+            confirmDelete(ID);
           }}>Eliminar</button>           
         </Modal.Footer>
       </Modal>
