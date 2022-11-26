@@ -35,9 +35,10 @@ export const RegistrarUsuarioAdm = () => {
       nombre == "" ||
       apellidos == "" ||
       rol == "" ||
-      usuario == "" ||
+      usuario == "1" ||
       password == ""
     ) {
+      console.log(nombre, apellidos, rol, usuario, password)
       msgError.fire({
         title: "Debe llenar todos los campos",
       });
@@ -143,7 +144,7 @@ export const RegistrarUsuarioAdm = () => {
               onChange={handleInputChange}
               value={rol}
             >
-              <option selected>
+              <option selected value="1">
                 Seleccione un rol para la cuenta
               </option>
               <option value="administrador">Administrador</option>

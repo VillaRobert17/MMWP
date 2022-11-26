@@ -12,7 +12,7 @@ import {
   BiUserCircle,
 } from "react-icons/bi";
 import { FaHome } from "react-icons/fa";
-import {GrUserAdmin} from "react-icons/Gr";
+import { GrUserAdmin } from "react-icons/Gr";
 import profileImage from "../assets/Logo.png";
 
 import SideBarMenuItemView from "./SideBarMenuItemView";
@@ -22,9 +22,11 @@ import { db } from "../firebase";
 import "./SideBarMenu.scss";
 import { collection, getDocs } from "firebase/firestore";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 export function SideBarMenu() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const items: SideBarMenuItem[] = [
     //Aquí se ponen los diferentes iconos del menú
@@ -95,7 +97,6 @@ export function SideBarMenu() {
       icon: BiLogOut,
       url: "logOut",
     },
-   
   ];
 
   const card: SideBarMenuCard = {
@@ -121,13 +122,22 @@ export function SideBarMenu() {
   const handleCheckBox = async () => {
     const checkbox = document.querySelector("#adm_usr") as HTMLInputElement;
     if (checkbox?.checked) {
+      //eliminate class active
+      document.getElementById("2")?.classList.remove("active");
+      document.getElementById("4")?.classList.remove("active");
+      document.getElementById("5")?.classList.remove("active");
+      document.getElementById("6")?.classList.remove("active");
+      document.getElementById("7")?.classList.remove("active");
+      document.getElementById("9")?.classList.remove("active");
+      //add class ocultar
       document.getElementById("2")?.classList.add("ocultar");
       document.getElementById("4")?.classList.add("ocultar");
       document.getElementById("5")?.classList.add("ocultar");
       document.getElementById("6")?.classList.add("ocultar");
       document.getElementById("7")?.classList.add("ocultar");
       document.getElementById("9")?.classList.add("ocultar");
-      
+
+      navigate("/Home");
     } else {
       //pedir contraseña
       const { value: password } = await Swal.fire({
@@ -162,7 +172,6 @@ export function SideBarMenu() {
             document.getElementById("6")?.classList.remove("ocultar");
             document.getElementById("7")?.classList.remove("ocultar");
             document.getElementById("9")?.classList.remove("ocultar");
-           
           }
         });
       } else {
