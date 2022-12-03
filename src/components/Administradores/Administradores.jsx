@@ -115,17 +115,17 @@ export const Administradores = () => {
 
   const confirmDelete = (id) => {
     Swal.fire({
-      title: "¿Esta seguro de eliminarlo?",
-      text: "!No podrás revertir esto!",
+      title: "¿Está seguro de eliminarlo?",
+      text: "¡No podrás revertir esta acción!",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Sí, eliminar.",
+      confirmButtonText: "Sí",
     }).then((result) => {
       if (result.isConfirmed) {
         deleteProv(id);
-        Swal.fire("Eliminado!", "Su archivo ha sido eliminado..", "éxito");
+        Swal.fire("Eliminado", "Su archivo ha sido eliminado..", "éxito");
       }
     });
   };
@@ -162,7 +162,7 @@ export const Administradores = () => {
                 <th>Apellidos</th>
                 <th>Rol</th>
                 <th>Usuario</th>
-                <th>Password</th>
+                <th>Contraseña</th>
                 <th>Acciones</th>
               </tr>
             </thead>
@@ -244,7 +244,7 @@ export const Administradores = () => {
               ></input>           
             </div>
             <div class="col-md-6">
-            <label>Password</label>
+            <label>Contraseña</label>
               <input
                 type="text"
                 class="form-control"
