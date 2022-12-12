@@ -51,7 +51,7 @@ export const Principal = () => {
   const answerQuestion = async (e) => {
     //document.getElementsByTagName("textArea")[0].value = "";
       console.log("Question submitted.");
-      const passage = "Marina Mesa is an event hall, where parties are held, located in Tepic."
+      const passage = "Marina Meza is a company dedicated to Design, planning, coordination and logistics for your event. We take care of every detail so that you live the experience of your big day to the fullest, with our experience and creativity at your service. We love being part of those first moments! It doesn't matter if your event is petite, full of color with floral details and it will look amazing. Located in the city of Tepic, Nayarit. With our work team, you and your ideas; we advise you and we do a whole planning around them to manage to materialize your event in a memorable experience. We take care of inspecting even the smallest detail of your event from the organization in our offices, the logistics at the headquarters, the operation and the post-production of your events. Your event does not end when we pick up the equipment and leave of the headquarters; but that is where a supplier-client relationship begins that we keep alive to have future successes together. "
 
       const answers = await model.findAnswers(pregunta, passage);
       setAnswer(answers);
